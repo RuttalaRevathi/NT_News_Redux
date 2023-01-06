@@ -30,11 +30,11 @@ const Details = ({ navigation, relatedData, relatedLoading,
     // goToTop();
   }, []);
  
-  const source = route?.params?.item?.content?.rendered
-  const source1 = source.replace(
-    'lazyload',
-    'text/javascript',
-  );
+  // const source = route?.params?.item?.content?.rendered
+  // const source1 = source.replace(
+  //   'lazyload',
+  //   'text/javascript',
+  // );
   // const goToTop = () => {
   //   this.scroll.scrollTo({ x: 0, y: 0, animated: true });
   return (
