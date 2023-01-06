@@ -7,6 +7,8 @@ import Details from '../screens/Details';
 import Home from '../screens/Home';
 import { Image, Linking, TouchableOpacity } from 'react-native';
 import { appThemeColor, Dark_Gray } from '../styles/commonstyles';
+import PhotoGallery from '../screens/TopTabScreens/PhotoGallery';
+import LatestNews from '../screens/LatestNews';
 
 
 const Tab = createBottomTabNavigator();
@@ -55,7 +57,7 @@ const BottomTabNavigator = () => {
     />
     <Tab.Screen
       name="LatestNews"
-      component={HomeStackNavigator}
+      component={LatestNews}
       options={{
         headerShown: false,
         tabBarLabel: 'Latest News',
@@ -76,7 +78,7 @@ const BottomTabNavigator = () => {
     />
     <Tab.Screen
       name="Photos"
-      component={HomeStackNavigator}
+      component={PhotoGallery}
       options={{
         headerShown: false,
         tabBarLabel: 'Photo Gallery',

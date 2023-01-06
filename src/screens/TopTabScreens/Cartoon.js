@@ -34,7 +34,6 @@ const Cartoon = ({ navigation,
         dispatch(getCartoonAction());
 
     }, []);
-    console.log(JSON.stringify(cartoonData),"cartoondata");            
 
     return (
         <SafeAreaView styles={commonstyles.container}>

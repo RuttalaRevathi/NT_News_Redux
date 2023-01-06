@@ -67,7 +67,7 @@ export default class SideMenu extends Component {
                             label="లేటెస్ట్ న్యూస్"
                             labelStyle={sideMenuStyle.text}
                             onPress={() => {
-                                this.props.navigation.navigate('Hyderabad');
+                                this.props.navigation.navigate('LatestNews');
                             }}
                         />
 
@@ -96,7 +96,7 @@ export default class SideMenu extends Component {
                             label="రాశి ఫలాలు"
                             labelStyle={sideMenuStyle.text}
                             onPress={() => {
-                                this.props.navigation.navigate('Hyderabad');
+                                this.props.navigation.navigate('రాశి ఫలాలు');
                             }}
                         />
 
@@ -111,7 +111,7 @@ export default class SideMenu extends Component {
                             label="కార్టూన్‌"
                             labelStyle={sideMenuStyle.text}
                             onPress={() => {
-                                this.props.navigation.navigate('National');
+                                this.props.navigation.navigate('కార్టూన్‌');
                             }}
                         />
 
@@ -126,7 +126,7 @@ export default class SideMenu extends Component {
                             label="ఆరోగ్యం"
                             labelStyle={sideMenuStyle.text}
                             onPress={() => {
-                                this.props.navigation.navigate('InterNational');
+                                this.props.navigation.navigate('ఆరోగ్యం');
                             }}
                         />
 
@@ -141,7 +141,7 @@ export default class SideMenu extends Component {
                             label="హైదరాబాద్‌"
                             labelStyle={sideMenuStyle.text}
                             onPress={() => {
-                                this.props.navigation.navigate('Telangana');
+                                this.props.navigation.navigate('హైదరాబాద్‌');
                             }}
                         />
 
@@ -156,7 +156,7 @@ export default class SideMenu extends Component {
                             label="తెలంగాణ"
                             labelStyle={sideMenuStyle.text}
                             onPress={() => {
-                                this.props.navigation.navigate('Ap');
+                                this.props.navigation.navigate('తెలంగాణ');
                             }}
                         />
 
@@ -167,11 +167,11 @@ export default class SideMenu extends Component {
                                     source={require('../Assets/Images/sidemenuIcons/ap.png')}
                                     style={sideMenuStyle.icon}
                                 />
-                            )}
+                            )}ఏపీ
                             label="ఏపీ"
                             labelStyle={sideMenuStyle.text}
                             onPress={() => {
-                                this.props.navigation.navigate('Cinema');
+                                this.props.navigation.navigate('ఏపీ');
                             }}
                         />
                         <DrawerItem
@@ -185,7 +185,7 @@ export default class SideMenu extends Component {
                             label="జాతీయం"
                             labelStyle={sideMenuStyle.text}
                             onPress={() => {
-                                this.props.navigation.navigate('Sports');
+                                this.props.navigation.navigate('జాతీయం');
                             }}
                         />
                         <DrawerItem
@@ -199,7 +199,7 @@ export default class SideMenu extends Component {
                             label="అంతర్జాతీయం"
                             labelStyle={sideMenuStyle.text}
                             onPress={() => {
-                                this.props.navigation.navigate('Chinthana');
+                                this.props.navigation.navigate('అంతర్జాతీయం');
                             }}
                         />
                         <DrawerItem
@@ -213,7 +213,7 @@ export default class SideMenu extends Component {
                             label="స్పోర్ట్స్"
                             labelStyle={sideMenuStyle.text}
                             onPress={() => {
-                                this.props.navigation.navigate('Education');
+                                this.props.navigation.navigate('స్పోర్ట్స్');
                             }}
                         />
                         <DrawerItem
@@ -227,7 +227,7 @@ export default class SideMenu extends Component {
                             label="బిజినెస్"
                             labelStyle={sideMenuStyle.text}
                             onPress={() => {
-                                this.props.navigation.navigate('Business');
+                                this.props.navigation.navigate('బిజినెస్');
                             }}
                         />
                         <DrawerItem
@@ -241,7 +241,7 @@ export default class SideMenu extends Component {
                             label="ఎన్‌ఆర్‌ఐ"
                             labelStyle={sideMenuStyle.text}
                             onPress={() => {
-                                this.props.navigation.navigate('Special');
+                                this.props.navigation.navigate('ఎన్‌ఆర్‌ఐ');
                             }}
                         />
                         <DrawerItem
@@ -255,7 +255,7 @@ export default class SideMenu extends Component {
                             label="ఫొటోలు"
                             labelStyle={sideMenuStyle.text}
                             onPress={() => {
-                                this.props.navigation.navigate('Nri');
+                                this.props.navigation.navigate('ఫొటోలు');
                             }}
                         />
                         <DrawerItem
@@ -269,7 +269,7 @@ export default class SideMenu extends Component {
                             label="వీడియోలు"
                             labelStyle={sideMenuStyle.text}
                             onPress={() => {
-                                this.props.navigation.navigate('LifeStyle');
+                                this.props.navigation.navigate('వీడియోలు');
                             }}
                         />
                         <DrawerItem
@@ -283,7 +283,7 @@ export default class SideMenu extends Component {
                             label="ఎడిట్‌ పేజీ"
                             labelStyle={sideMenuStyle.text}
                             onPress={() => {
-                                this.props.navigation.navigate('Photos');
+                                this.props.navigation.navigate('ఎడిట్‌ పేజీ');
                             }}
                         />
                         <DrawerItem
@@ -297,7 +297,7 @@ export default class SideMenu extends Component {
                             label="జిందగీ"
                             labelStyle={sideMenuStyle.text}
                             onPress={() => {
-                                this.props.navigation.navigate('Videos');
+                                this.props.navigation.navigate('జిందగీ');
                             }}
                         />
                         <DrawerItem
@@ -311,7 +311,7 @@ export default class SideMenu extends Component {
                             label="బతుకమ్మ"
                             labelStyle={sideMenuStyle.text}
                             onPress={() => {
-                                this.props.navigation.navigate('Science');
+                                this.props.navigation.navigate('బతుకమ్మ');
                             }}
                         />
 
@@ -326,7 +326,7 @@ export default class SideMenu extends Component {
                             label="వ్యవసాయం"
                             labelStyle={sideMenuStyle.text}
                             onPress={() => {
-                                this.props.navigation.navigate('Cartoon');
+                                this.props.navigation.navigate('వ్యవసాయం');
                             }}
                         />
 
@@ -341,7 +341,7 @@ export default class SideMenu extends Component {
                             label="వంటలు"
                             labelStyle={sideMenuStyle.text}
                             onPress={() => {
-                                this.props.navigation.navigate('EverGreen');
+                                this.props.navigation.navigate('వంటలు');
                             }}
                         />
 
@@ -356,7 +356,7 @@ export default class SideMenu extends Component {
                             label="వాస్తు"
                             labelStyle={sideMenuStyle.text}
                             onPress={() => {
-                                this.props.navigation.navigate('Crime');
+                                this.props.navigation.navigate('వాస్తు');
                             }}
                         />
 

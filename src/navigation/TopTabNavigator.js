@@ -24,6 +24,8 @@ import BathukammaScreen from '../screens/TopTabScreens/Bathukamma';
 import AgricultureScreen from '../screens/TopTabScreens/Agriculture';
 import CookingScreen from '../screens/TopTabScreens/Cooking';
 import VaasthuScreen from '../screens/TopTabScreens/Vaasthu';
+import LatestNews from '../screens/LatestNews';
+import Videos from '../screens/TopTabScreens/Videos';
 
 
 
@@ -70,7 +72,7 @@ const TopTabNavigator = () => {
         ),
       }}
     />
-      <TopTab.Screen name="లేటెస్ట్ న్యూస్" component={HyderabadScreen} />
+      <TopTab.Screen name="లేటెస్ట్ న్యూస్" component={LatestNews} />
       <TopTab.Screen name="సినిమా" component={CinemaScreen} />
       <TopTab.Screen name="రాశి ఫలాలు‌" component={RasiPhalaluScreen} />
       <TopTab.Screen name="కార్టూన్‌" component={CartoonScreen} />
@@ -84,7 +86,7 @@ const TopTabNavigator = () => {
       <TopTab.Screen name="బిజినెస్" component={BusinessScreen} />
       <TopTab.Screen name="ఎన్‌ఆర్‌ఐ" component={NriScreen} />
       <TopTab.Screen name="ఫొటోలు" component={PhotoGallery} />
-      <TopTab.Screen name="వీడియోలు" component={Details} />
+      <TopTab.Screen name="వీడియోలు" component={Videos} />
       <TopTab.Screen name="ఎడిట్‌ పేజీ" component={EditPageScreen} />
       <TopTab.Screen name="జిందగీ" component={ZindagiScreen} />
       <TopTab.Screen name="బతుకమ్మ" component={BathukammaScreen} />

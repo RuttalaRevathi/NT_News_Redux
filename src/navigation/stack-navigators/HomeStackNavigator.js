@@ -4,6 +4,8 @@ import { Button } from 'react-native'
 import { createStackNavigator } from '@react-navigation/stack';
 import Home from '../../screens/Home';
 import Details from '../../screens/Details';
+import PhotoArticle from '../../screens/PhotoArticle';
+
 import TopTabNavigator from '../TopTabNavigator';
 
 const Stack = createStackNavigator();
@@ -19,6 +21,8 @@ const HomeStackNavigator = () => {
     >
       <Stack.Screen name="Home" component={TopTabNavigator} />
       <Stack.Screen name="Details" component={Details} />
+      <Stack.Screen name="PhotoArticle" component={PhotoArticle} />
+
     </Stack.Navigator>
   )
 };

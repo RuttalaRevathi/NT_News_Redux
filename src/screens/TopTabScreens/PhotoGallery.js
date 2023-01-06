@@ -56,7 +56,7 @@ const PhotoGallery = ({
                   <View style={{}}>
                     <TouchableOpacity
                       onPress={() => {
-                        navigation.navigate('Details', {
+                        navigation.navigate('PhotoArticle', {
                           item: item,
                         });
                       }}>
@@ -87,11 +87,6 @@ const PhotoGallery = ({
         </View>
       </ScrollView>
 
-      {/* {this.state.isLoading == false && (
-        <View style={commonstyles.loading}>
-          <ActivityIndicator color={appThemeColor} size="large" />
-        </View>
-      )} */}
     </SafeAreaView>
   );
 };

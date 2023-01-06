@@ -36,6 +36,12 @@ export const commonstyles = StyleSheet.create({
     marginTop: 10,
     alignItems: 'center',
   },
+  cateMView: {
+    flexDirection: 'row',
+    left: 10,
+    marginRight: 10,
+    flex: 2,
+  },
   menuview: {
     // backgroundColor: appThemeColor,
     alignItems: 'center',
@@ -281,7 +287,7 @@ export const commonstyles = StyleSheet.create({
     borderRadius: 10, resizeMode: 'center',
   },
   CartoonCard: {
-    width: '100%',
+    width: '95%',
     justifyContent: 'center',
     flex: 1,
     backgroundColor: '#fff',

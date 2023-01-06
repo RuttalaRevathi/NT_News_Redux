@@ -22,14 +22,21 @@ const Details = ({ navigation, relatedData, relatedLoading,
   latestNews,
   latestLoading, route }: Props) => {
   const dispatch = useDispatch();
+  
   useEffect(() => {
     dispatch(getRelatedAction());
   }, []);
-  console.log('item data', route?.params?.item);
-  // let source1 = route?.params?.item?.content?.rendered?.replace(
-  //   'lazyload',
-  //   'text/javascript',
-  // );
+  useEffect(() => {
+    // goToTop();
+  }, []);
+ 
+  const source = route?.params?.item?.content?.rendered
+  const source1 = source.replace(
+    'lazyload',
+    'text/javascript',
+  );
+  // const goToTop = () => {
+  //   this.scroll.scrollTo({ x: 0, y: 0, animated: true });
   return (
     <View style={commonstyles.container}>
       <View>
@@ -58,7 +65,7 @@ const Details = ({ navigation, relatedData, relatedLoading,
               onPress={() => {
                 Linking.openURL(
                   'http://www.facebook.com/sharer.php?u=' +
-                  this.state.data.link +
+                  route?.params?.item?.link +
                   '%3Futm_source%3Dreferral%26utm_medium%3DFB%26utm_campaign%3Dsocial_share&app_id=369158533547966',
                 );
               }}>
@@ -72,7 +79,7 @@ const Details = ({ navigation, relatedData, relatedLoading,
               onPress={() => {
                 Linking.openURL(
                   'https://twitter.com/intent/tweet?url=' +
-                  this.state.data.link,
+                  route?.params?.item?.link,
                 );
               }}>
               <Image
@@ -84,7 +91,7 @@ const Details = ({ navigation, relatedData, relatedLoading,
             <TouchableOpacity
               onPress={() => {
                 Linking.openURL(
-                  'whatsapp://send?text=' + this.state.data.link,
+                  'whatsapp://send?text=' + route?.params?.item?.link,
                 );
               }}>
               <Image
@@ -96,7 +103,7 @@ const Details = ({ navigation, relatedData, relatedLoading,
             <TouchableOpacity
               onPress={() => {
                 Linking.openURL(
-                  'https://t.me/share?url=' + this.state.data.link,
+                  'https://t.me/share?url=' + route?.params?.item?.link,
                 );
               }}>
               <Image
@@ -238,9 +245,53 @@ const Details = ({ navigation, relatedData, relatedLoading,
             </View>
 
           </View>
+ {/* Flash News */}
+ <View>
+            <View style={{ marginLeft: 10 }}>
+              <Text style={commonstyles.relatedText}>Flash News</Text>
+            </View>
+            <View style={commonstyles.photoview}>
+              <View>
 
-
-
+                <View>
+                  <FlatList
+                    data={latestNews?.data}
+                    showsHorizontalScrollIndicator={false}
+                    horizontal={true}
+                    renderItem={({ item, index }) => (
+                      <View style={{ marginRight: 5, marginLeft: 10 }}>
+                        <TouchableOpacity
+                          onPress={() => {
+                            navigation.navigate('Details', {
+                              item: item,
+                            });
+                          }}>
+                          <View style={commonstyles.sliderView}>
+                            <Image
+                              source={{ uri: item.web_featured_image }}
+                              style={commonstyles.photocard}
+                            />
+                            <LinearGradient
+                              colors={['transparent', 'black']}
+                              style={commonstyles.linearGradient}
+                              start={{ x: 0.5, y: 0.2 }}
+                              locations={[0.2, 0.8]}>
+                              <Text
+                                numberOfLines={2}
+                                ellipsizeMode="tail"
+                                style={commonstyles.flashtext}>
+                                {item.title.rendered}
+                              </Text>
+                            </LinearGradient>
+                          </View>
+                        </TouchableOpacity>
+                      </View>
+                    )}
+                  />
+                </View>
+              </View>
+            </View>
+          </View>
         </View>
       </ScrollView>
       {/* {this.state.isLoading == false && (

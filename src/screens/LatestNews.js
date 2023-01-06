@@ -1,44 +1,46 @@
 /* eslint-disable prettier/prettier */
-import React, { useEffect } from 'react';
+/* eslint-disable react-native/no-inline-styles */
+import React, {useEffect} from 'react';
+import {useDispatch, connect} from 'react-redux';
 import {
-  Text,
-  View,
+  ActivityIndicator,
   FlatList,
   Image,
-  TouchableOpacity,
-  ScrollView,
   SafeAreaView,
-  Share,
+  ScrollView,
+  Text,
+  TouchableOpacity,
+  View,
 } from 'react-native';
-import { commonstyles } from '../styles/commonstyles';
 import SubHeader from '../components/SubHeader';
-import LinearGradient from 'react-native-linear-gradient';
+import {commonstyles} from '../styles/commonstyles';
+import getLatestNewsAction from '../redux/actions/getLatestNewsAction';
 import moment from 'moment';
-import { ShareUrl } from '../utilities/urls';
+import LinearGradient from 'react-native-linear-gradient';
 
-const sharecall = (name) => {
-  const Link_Url = ShareUrl + name;
-  Share.share({
-    message: Link_Url,
-  })
-    .then((result) => console.log(result))
-    .then((error) => console.log(error));
-};
-function CategoryUI(props, { navigation }) {
+
+const LatestNews = ({
+  navigation,
+  latestNews,
+  latestLoading,
+  route,
+}: Props) => {
+  const dispatch = useDispatch();
+
   useEffect(() => {
-    // console.log(props.data,"categorydata");            
-  })
-
+    dispatch(getLatestNewsAction());
+  }, []);
+  // share function
   return (
     <SafeAreaView styles={commonstyles.container}>
       <SubHeader
-        title={props.title}
+        title={'తాజావార్తలు '}
         isMenu={false}
         isBook={false}
         isShare={true}
-        leftBtnClick={() => props.navigation.goBack()}
+        leftBtnClick={() => navigation.goBack()}
         ShareClick={() => {
-          sharecall(props.categoryName);
+          this.sharecall();
         }}
         BookClick={() => {
           alert('BookMark   Clicked');
@@ -49,12 +51,12 @@ function CategoryUI(props, { navigation }) {
           <View style={{ position: 'relative' }}>
             <FlatList
               showsHorizontalScrollIndicator={false}
-              data={props.data?.data?.slice(0, 1)}
+              data={latestNews.data?.slice(0, 1)}
               renderItem={({ item, index }) => (
                 <View style={{ marginRight: 5, marginLeft: 5, marginTop: 10 }}>
                   <TouchableOpacity
                     onPress={() => {
-                      props.navigation.navigate('Details', {
+                     navigation.navigate('Details', {
                         item: item,
                       });
                     }}>
@@ -81,12 +83,12 @@ function CategoryUI(props, { navigation }) {
             />
             <FlatList
               style={commonstyles.cateflist}
-              data={props.data?.data?.slice(1, -1)}
+              data={latestNews.data?.slice(1, -1)}
               renderItem={({ item, index }) => (
                 <View>
                   <TouchableOpacity
                     onPress={() => {
-                      props.navigation.navigate('Details', {
+                     navigation.navigate('Details', {
                         item: item,
                       });
                     }}>
@@ -131,7 +133,22 @@ function CategoryUI(props, { navigation }) {
                 <ActivityIndicator color={appThemeColor} size='large' />
             </View>
         } */}
+
+   
     </SafeAreaView>
   );
 };
-export default CategoryUI;
+
+type Props = {
+    latestNews: Function,
+  latestLoading: Boolean,
+};
+
+const mapStateToProps = state => ({
+    latestNews: state.latestNewsReducer?.latestNews,
+    latestLoading: state.latestNewsReducer?.latestLoading,
+});
+const mapDispatchToProps = {
+    getLatestNewsAction,
+};
+export default connect(mapStateToProps, mapDispatchToProps)(LatestNews);
