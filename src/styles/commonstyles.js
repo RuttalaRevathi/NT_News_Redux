@@ -70,9 +70,9 @@ export const commonstyles = StyleSheet.create({
   latestTxtTag: { color: blackcolor, fontFamily: 'Mandali-Regular',
   fontSize: 16, lineHeight: 25, left: 5, right: 2, paddingRight: 20 },
   slidercard: {
-    height: Dimensions.get('window').height * 0.32,
-    // width: screenWidth - 10,
-    borderRadius: 15,
+    height:200,
+    width: ITEM_WIDTH,
+    borderRadius: 10,
 
   },
   photocard: {

@@ -153,13 +153,13 @@ const Home = ({
                     bottom: 0,
                   }}>
                   <Text
-                    style={{
-                      color: '#FFFFFF',
-                      fontSize: 18,
-                      fontFamily: 'Mandali-Bold',
-                    }}>
-                    {index}/{sliderData?.data?.length}
-                  </Text>
+                      style={{
+                        color: '#FFFFFF',
+                        fontSize: 18,
+                        fontFamily: 'Mandali-Bold',
+                      }}>
+                      {index+1}/{sliderData?.data?.length}
+                    </Text>
                 </View>
                 <LinearGradient
                   colors={[
@@ -183,22 +183,9 @@ const Home = ({
         <Pagination
             style={commonstyles.pagination}
             carouselRef={isCarousel}
-            // dotStyle={{display: 'none'}}
+            dotStyle={{display: 'none'}}
             enableMomentum={true}
-            dotStyle={{
-              width: 10,
-              height: 10,
-              borderRadius: 5,
-              marginHorizontal: 0,
-              marginVertical: 0,
-              backgroundColor: appThemeColor,
-            }}
-            inactiveDotStyle={{
-              backgroundColor: 'rgba(0, 0, 0, 0.92)',
-            }}
-            inactiveDotOpacity={0.4}
-            inactiveDotScale={0.6}
-            tappableDots={true}
+            
           />
 
         </View>
