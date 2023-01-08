@@ -57,7 +57,7 @@ const LatestNews = ({
                   <TouchableOpacity
                     onPress={() => {
                      navigation.navigate('Details', {
-                        item: item,
+                      item: item,detailsData:latestNews?.data
                       });
                     }}>
                     <View style={commonstyles.sliderView}>
@@ -89,7 +89,7 @@ const LatestNews = ({
                   <TouchableOpacity
                     onPress={() => {
                      navigation.navigate('Details', {
-                        item: item,
+                      item: item,detailsData:latestNews?.data
                       });
                     }}>
                     <View style={commonstyles.cardView}>

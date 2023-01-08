@@ -87,7 +87,7 @@ function CategoryUI(props, { navigation }) {
                   <TouchableOpacity
                     onPress={() => {
                       props.navigation.navigate('Details', {
-                        item: item,
+                        item: item,detailsData:props?.data
                       });
                     }}>
                     <View style={commonstyles.cardView}>

@@ -4,7 +4,7 @@ import { useDispatch, connect } from 'react-redux';
 import Carousel, { Pagination } from 'react-native-snap-carousel';
 import Swiper from 'react-native-web-swiper';
 import { SwiperFlatList } from 'react-native-swiper-flatlist';
-import { View, Text, TouchableOpacity, Image, FlatList, ScrollView, ActivityIndicator } from 'react-native';
+import { View, Text, TouchableOpacity, Image, FlatList, ScrollView, ActivityIndicator, ImageBackground } from 'react-native';
 import getSliderAction from '../redux/actions/getSliderAction';
 
 
@@ -40,6 +40,9 @@ import getBathukammaAction from '../redux/actions/getBathukammaAction';
 import getAgricultureAction from '../redux/actions/getAgricultureAction';
 import getCookingAction from '../redux/actions/getCookingAction';
 import getVaasthuAction from '../redux/actions/getVaasthuAction';
+import getVideoAction from '../redux/actions/getVideoAction';
+import getPhotoGalleryAction from '../redux/actions/getPhotoGalleryAction';
+
 const Home = ({
   navigation,
   sliderData,
@@ -70,7 +73,9 @@ const Home = ({
   bathukammaLoading, agricultureData,
   agricultureLoading, cookingData,
   cookingLoading, vaasthuData,
-  vaasthuLoading,
+  vaasthuLoading, videoData,
+  videoLoading,photosData,
+  photosLoading,
 }: Props) => {
 
   // let decode = require('html-entities-decoder');
@@ -100,14 +105,15 @@ const Home = ({
     dispatch(getAgricultureAction());
     dispatch(getCookingAction());
     dispatch(getVaasthuAction());
-
+    dispatch(getVideoAction())
+    dispatch(getPhotoGalleryAction())
     var newArray = sliderData?.data?.filter(function (elem, pos) {
       return sliderData?.data?.indexOf(elem) == pos;
     });
     setFilteredDetails(newArray);
 
     if (loading === false && latestLoading === false && cinemaLoading === false &&
-       rasiPhalaluLoading === false) {
+      rasiPhalaluLoading === false) {
       setTotalLoading(false);
     }
     else {
@@ -118,7 +124,7 @@ const Home = ({
   return (
 
     <ScrollView>
-      <View style={{padding:10}}>
+      <View style={{ padding: 10 }}>
         {/* Spinner */}
         <Spinner
           //visibility of Overlay Loading Spinner
@@ -137,56 +143,56 @@ const Home = ({
             // loop={true}
             renderItem={({ item, index }) => (
               <TouchableOpacity
-              onPress={() => {
-                navigation.navigate('Details',{item:item,detailsData:sliderData?.data});
-              }}>
-              <View style={commonstyles.sliderView} key={index}>
-                <Image
-                  source={{uri: item.web_featured_image}}
-                  style={commonstyles.slidercard}
-                />
-                <View
-                  style={{
-                    position: 'absolute',
-                    top: 0,
-                    left: 0,
-                    right: 0,
-                    bottom: 0,
-                  }}>
-                  <Text
+                onPress={() => {
+                  navigation.navigate('Details', { item: item, detailsData: sliderData?.data });
+                }}>
+                <View style={commonstyles.sliderView} key={index}>
+                  <Image
+                    source={{ uri: item.web_featured_image }}
+                    style={commonstyles.slidercard}
+                  />
+                  <View
+                    style={{
+                      position: 'absolute',
+                      top: 0,
+                      left: 0,
+                      right: 0,
+                      bottom: 0,
+                    }}>
+                    <Text
                       style={{
                         color: '#FFFFFF',
                         fontSize: 18,
                         fontFamily: 'Mandali-Bold',
                       }}>
-                      {index+1}/{sliderData?.data?.length}
+                      {index + 1}/{sliderData?.data?.length}
                     </Text>
+                  </View>
+                  <LinearGradient
+                    colors={[
+                      'rgba(0,0,0,0)',
+                      'rgba(0,0,0,.8)',
+                      'rgba(0,0,0,1)',
+                    ]}
+                    style={commonstyles.sliderGradient}>
+                    <Text style={commonstyles.slidertext}>
+                      {item.title.rendered}
+                    </Text>
+                  </LinearGradient>
                 </View>
-                <LinearGradient
-                  colors={[
-                    'rgba(0,0,0,0)',
-                    'rgba(0,0,0,.8)',
-                    'rgba(0,0,0,1)',
-                  ]}
-                  style={commonstyles.sliderGradient}>
-                  <Text style={commonstyles.slidertext}>
-                    {item.title.rendered}
-                  </Text>
-                </LinearGradient>
-              </View>
-            </TouchableOpacity>
+              </TouchableOpacity>
             )}
             sliderWidth={SLIDER_WIDTH}
             itemWidth={ITEM_WIDTH}
             onSnapToItem={index => setIndex(index)}
             useScrollView={true}
           />
-        <Pagination
+          <Pagination
             style={commonstyles.pagination}
             carouselRef={isCarousel}
-            dotStyle={{display: 'none'}}
+            dotStyle={{ display: 'none' }}
             enableMomentum={true}
-            
+
           />
 
         </View>
@@ -298,6 +304,147 @@ const Home = ({
           navigationScreen="ఏపీ"
           navigation={navigation}
         />
+        {/* Photo Gallery */}
+        <View>
+          {/*photo gallery  text*/}
+
+          <View style={commonstyles.photoview}>
+            <View style={commonstyles.phototextview}>
+              <View style={{ flex: 1.7 }}>
+                <Text style={commonstyles.ptext}>ఫోటో గ్యాలరీ</Text>
+              </View>
+            </View>
+            {/* photo gallery  Cards*/}
+            <View>
+                <View>
+                  <FlatList
+                    data={photosData?.data}
+                    showsHorizontalScrollIndicator={false}
+                    horizontal={true}
+                    renderItem={({ item, index }) => (
+                      <View style={{ marginRight: 5, marginLeft: 10 }}>
+                        <TouchableOpacity
+                          onPress={() => {
+                            this.props.navigation.navigate(
+                              'PhotoGalleryArticle',
+                              {
+                                item: item,
+                                detailsData:photosData?.data
+                              },
+                            );
+                          }}>
+                          <View style={commonstyles.sliderView}>
+                            <Image
+                              source={{ uri: item.web_featured_image }}
+                              style={commonstyles.photocard}
+                            />
+                            <LinearGradient
+                              colors={['transparent', 'white']}
+                              style={commonstyles.linearGradient}
+                              start={{ x: 0.5, y: 0.2 }}
+                              locations={[0.2, 0.8]}>
+                              <Text
+                                numberOfLines={2}
+                                ellipsizeMode="tail"
+                                style={commonstyles.phototext}>
+                                {item.title.rendered}
+                              </Text>
+                            </LinearGradient>
+                          </View>
+                        </TouchableOpacity>
+                      </View>
+                    )}
+                  />
+                  {/* more text */}
+                  <View style={commonstyles.moreview}>
+                    <TouchableOpacity
+                      onPress={() => {
+                        this.props.navigation.navigate('Photos');
+                      }}>
+                      <Text style={commonstyles.moretext}>More . . .</Text>
+                    </TouchableOpacity>
+                  </View>
+                </View>
+              
+            </View>
+          </View>
+        </View>
+
+        {/* videos Gallery */}
+        <View>
+          {/*videos  text*/}
+
+          <View style={commonstyles.photoview}>
+            <View style={commonstyles.phototextview}>
+              <View style={{ flex: 1.7 }}>
+                <Text style={commonstyles.ptext}>వీడియోలు</Text>
+              </View>
+            </View>
+            {/* videos  Cards*/}
+            <View>
+                <View>
+                  <FlatList
+                    data={videoData?.data}
+                    showsHorizontalScrollIndicator={false}
+                    horizontal={true}
+                    renderItem={({ item, index }) => (
+                      <View style={{ marginRight: 5, marginLeft: 10 }}>
+                        <TouchableOpacity
+                          onPress={() => {
+                            this.props.navigation.navigate('VideoArticle', {
+                              item: item,
+                                detailsData:videoData?.data
+                            });
+                          }}>
+                          <View style={commonstyles.sliderView}>
+                            <ImageBackground
+                              imageStyle={{ borderRadius: 6 }}
+                              source={{ uri: item.web_featured_image }}
+                              style={commonstyles.videocard}>
+                              <View
+                                style={{
+                                  justifyContent: 'center',
+                                  alignContent: 'center',
+                                  alignSelf: 'center',
+                                  marginVertical: 100,
+                                }}>
+                                <Image
+                                  style={{ width: 30, height: 20 }}
+                                  source={require('../Assets/Images/videoicon.png')}
+                                />
+                              </View>
+                            </ImageBackground>
+                            <LinearGradient
+                              colors={['transparent', 'white']}
+                              style={commonstyles.linearGradient}
+                              start={{ x: 0.5, y: 0.2 }}
+                              locations={[0.2, 0.8]}>
+                              <Text
+                                numberOfLines={2}
+                                ellipsizeMode="tail"
+                                style={commonstyles.phototext}>
+                                {item.title.rendered}
+                              </Text>
+                            </LinearGradient>
+                          </View>
+                        </TouchableOpacity>
+                      </View>
+                    )}
+                  />
+                  {/* more text */}
+                  <View style={commonstyles.moreview}>
+                    <TouchableOpacity
+                      onPress={() => {
+                        this.props.navigation.navigate('Videos');
+                      }}>
+                      <Text style={commonstyles.moretext}>More . . .</Text>
+                    </TouchableOpacity>
+                  </View>
+                </View>
+            
+            </View>
+          </View>
+        </View>
         {/* national */}
         <HomeUI
           categoryName="జాతీయం"
@@ -424,6 +571,10 @@ type Props = {
   cookingLoading: Boolean,
   vaasthuData: Function,
   vaasthuLoading: Boolean,
+  videoData: Function,
+  videoLoading: Boolean,
+  photosData: Function,
+  photosLoading: Boolean,
 };
 
 const mapStateToProps = state => ({
@@ -467,6 +618,10 @@ const mapStateToProps = state => ({
   cookingLoading: state.cookingReducer?.cookingLoading,
   vaasthuData: state.vaasthuReducer?.vaasthuData,
   vaasthuLoading: state.vaasthuReducer?.vaasthuLoading,
+  videoData: state.videoReducer?.videoData,
+  videoLoading: state.videoReducer?.videoLoading,
+  photosData: state.photosGalleryReducer?.photosData,
+  photosLoading: state.photosGalleryReducer?.photosLoading,
 });
 const mapDispatchToProps = {
   getSliderAction,
@@ -489,7 +644,8 @@ const mapDispatchToProps = {
   getAgricultureAction,
   getCookingAction,
   getVaasthuAction,
-
+  getVideoAction,
+  getPhotoGalleryAction
 
 };
 export default connect(mapStateToProps, mapDispatchToProps)(Home);

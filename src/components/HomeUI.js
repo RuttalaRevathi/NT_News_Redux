@@ -86,7 +86,7 @@ function HomeUI(props, { navigation }) {
                     <View>
                       <TouchableOpacity
                         onPress={() => {
-                          props.navigation.navigate('Details', { item: item });
+                          props.navigation.navigate('Details', {item: item,detailsData:props?.data});
                         }}>
                         <View style={commonstyles.cardViewHome}>
                           <View style={commonstyles.cateviewImg}>

@@ -1,9 +1,9 @@
 /* eslint-disable prettier/prettier */
 
 import {
-    GET_VIDEO,
-    GET_VIDEO_SUCCESS,
-    GET_VIDEO_ERROR,
+    GET_VIDEOS,
+    GET_VIDEOS_SUCCESS,
+    GET_VIDEOS_ERROR,
   } from '../actions/getVideoAction';
 
   const initialState = {
@@ -14,11 +14,11 @@ import {
 
   function videoReducer(state = initialState, action) {
     switch (action.type) {
-      case GET_VIDEO:
+      case GET_VIDEOS:
         return {...state, videoLoading: false};
-      case GET_VIDEO_SUCCESS:
+      case GET_VIDEOS_SUCCESS:
         return {...state, videoData: action.payload, videoLoading: true};
-              case GET_VIDEO_ERROR:
+              case GET_VIDEOS_ERROR:
   return {...state, videoLoading: false, error: true};
       default:
         return state;
