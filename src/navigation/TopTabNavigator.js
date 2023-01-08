@@ -26,6 +26,7 @@ import CookingScreen from '../screens/TopTabScreens/Cooking';
 import VaasthuScreen from '../screens/TopTabScreens/Vaasthu';
 import LatestNews from '../screens/LatestNews';
 import Videos from '../screens/TopTabScreens/Videos';
+// import WarangalScreen from '../screens/DistrictScreens/Warangal';
 
 
 
@@ -93,7 +94,7 @@ const TopTabNavigator = () => {
       <TopTab.Screen name="వ్యవసాయం" component={AgricultureScreen} />
       <TopTab.Screen name="వంటలు" component={CookingScreen} />
       <TopTab.Screen name="వాస్తు" component={VaasthuScreen} />
-      <TopTab.Screen name="జిల్లాలు" component={Details} />
+      {/* <TopTab.Screen name="వరంగల్" component={WarangalScreen} /> */}
 
     
     </TopTab.Navigator>

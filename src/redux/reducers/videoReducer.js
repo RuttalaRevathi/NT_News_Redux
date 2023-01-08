@@ -12,7 +12,7 @@ import {
     error: false,
   };
 
-  function videosReducer(state = initialState, action) {
+  function videoReducer(state = initialState, action) {
     switch (action.type) {
       case GET_VIDEO:
         return {...state, videoLoading: false};
@@ -25,4 +25,4 @@ import {
     }
   }
 
-  export default videosReducer;
+  export default videoReducer;

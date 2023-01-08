@@ -95,8 +95,8 @@ type Props = {
 };
 
 const mapStateToProps = state => ({
-    videoData: state.photosGalleryReducer?.videoData,
-    videoLoading: state.photosGalleryReducer?.videoLoading,
+    videoData: state.videoReducer?.videoData,
+    videoLoading: state.videoReducer?.videoLoading,
 });
 const mapDispatchToProps = {
     getVideoAction,

@@ -23,6 +23,18 @@ import bathukammaReducer from '../redux/reducers/bathukammaReducer';
 import agricultureReducer from '../redux/reducers/agricultureReducer';
 import cookingReducer from '../redux/reducers/cookingReducer';
 import vaasthuReducer from '../redux/reducers/vaasthuReducer';
+import videoReducer from '../redux/reducers/videoReducer';
+import adilabadReducer from '../redux/reducers/districtsReducer';
+import karimnagarReducer from '../redux/reducers/districtsReducer';
+import khammamReducer from '../redux/reducers/districtsReducer';
+import mahabubnagarReducer from '../redux/reducers/districtsReducer';
+import medakReducer from '../redux/reducers/districtsReducer';
+import nalgondareducer from '../redux/reducers/districtsReducer';
+import nizamabadReducer from '../redux/reducers/districtsReducer';
+import rangareddyReducer from '../redux/reducers/districtsReducer';
+import warangalReducer from '../redux/reducers/districtsReducer';
+
+
 
 
 
@@ -31,5 +43,8 @@ import vaasthuReducer from '../redux/reducers/vaasthuReducer';
 const rootReducer = combineReducers({sliderReducer,latestNewsReducer,hyderabadReducer,
 cinemaReducer,rasiPhalauReducer,cartoonReducer,healthReducer,telanganaReducer,apReducer,
 nationalReducer,interNationalReducer,sportsReducer,businessReducer,nriReducer,relatedReducer,
-photosGalleryReducer,editPageReducer,zindagiReducer,bathukammaReducer,agricultureReducer,cookingReducer,vaasthuReducer});
+photosGalleryReducer,editPageReducer,zindagiReducer,bathukammaReducer,agricultureReducer,
+cookingReducer,vaasthuReducer,videoReducer,adilabadReducer,karimnagarReducer,khammamReducer,
+mahabubnagarReducer,medakReducer,nalgondareducer,nizamabadReducer,rangareddyReducer,warangalReducer
+});
 export const store = createStore(rootReducer, applyMiddleware(thunk));

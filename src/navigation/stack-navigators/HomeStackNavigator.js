@@ -4,6 +4,8 @@ import { Button } from 'react-native'
 import { createStackNavigator } from '@react-navigation/stack';
 import Home from '../../screens/Home';
 import Details from '../../screens/Details';
+// import Details from '../../screens/NewsArticle';
+
 import PhotoArticle from '../../screens/PhotoArticle';
 
 import TopTabNavigator from '../TopTabNavigator';

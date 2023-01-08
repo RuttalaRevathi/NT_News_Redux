@@ -1,8 +1,8 @@
-/* eslint-disable react-native/no-inline-styles */
 /* eslint-disable prettier/prettier */
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Image, Linking, ScrollView, FlatList, Share, Dimensions } from 'react-native';
 import { appThemeColor, commonstyles, Header_text } from '../styles/commonstyles';
+import WebView from 'react-native-webview';
 import AutoHeightWebView from 'react-native-autoheight-webview';
 import LinearGradient from 'react-native-linear-gradient';
 import Feather from 'react-native-vector-icons/Feather';
@@ -22,21 +22,34 @@ const Details = ({ navigation, relatedData, relatedLoading,
   latestNews,
   latestLoading, route }: Props) => {
   const dispatch = useDispatch();
-  
+  const [detailsData, setDetailsData] = useState([]);
+  // const [autiHeightData,setAutiHeightData] =useState();
+
   useEffect(() => {
     dispatch(getRelatedAction());
+    setDetailsData(route?.params?.detailsData);
   }, []);
+  // console.log(JSON.stringify(route?.params?.item), "===========================item");
+
   useEffect(() => {
     // goToTop();
   }, []);
- 
-  // const source = route?.params?.item?.content?.rendered
+  // var source = route?.params?.item?.content?.rendered;
+  // setAutiHeightData(route?.params?.item?.content?.rendered);
+  const getIndex = () => {
+    var index = detailsData.findIndex(
+      x => x.id == route?.params?.item?.id,
+    );
+    return index + 1;
+  };
   // const source1 = source.replace(
   //   'lazyload',
   //   'text/javascript',
   // );
   // const goToTop = () => {
   //   this.scroll.scrollTo({ x: 0, y: 0, animated: true });
+  const source = route?.params?.item?.content?.rendered;
+  var source1 = source?.replace('lazyload', 'text/javascript');
   return (
     <View style={commonstyles.container}>
       <View>
@@ -130,7 +143,7 @@ const Details = ({ navigation, relatedData, relatedLoading,
 
           <View style={{ margin: 10 }}>
             <HTMLView
-              value={'<p>' + route?.params?.item?.title.rendered + '</p>'}
+              value={'<p>' + route?.params?.item?.title?.rendered + '</p>'}
               stylesheet={headerStyles}
             />
           </View>
@@ -155,32 +168,31 @@ const Details = ({ navigation, relatedData, relatedLoading,
               pointerEvents: 'none',
               paddingLeft: 10,
             }}>
-            {/* <AutoHeightWebView
-              androidHardwareAccelerationDisabled
+           <AutoHeightWebView style={{ width: Dimensions.get('window').width - 15, marginTop: 35 ,}}
               customStyle={`
-                                  * {
-                                    font-family: 'Mandali-Bold';
-                                    line-height: 1.5;
-                                    -webkit-user-select: none;
-                                      -webkit-touch-callout: none; 
-                                     }
-                                  p {
-                                    font-size: 16px;
-                                    text-align:left;
-                                    margin:10;
-                                    font-family:'Mandali-Regular';
-                                    line-height:35px
-                                                                  }
-                                                                  p img{
-                                                                    width:100%;
-                                                                    height:inherit
-                                                                  }
-                                                                  p iframe{
-                                                                    width:100%;
-                                                                    height:inherit
-                                                                  }
-                                                                 
-                                `}
+              * {
+                font-family: 'Mandali-Bold';
+                line-height: 1.5;
+                -webkit-user-select: none;
+                  -webkit-touch-callout: none; 
+                 }
+              p {
+                font-size: 16px;
+                text-align:left;
+                margin:10;
+                font-family:'Mandali-Regular';
+                line-height:35px
+                                              }
+                                              p img{
+                                                width:100%;
+                                                height:inherit
+                                              }
+                                              p iframe{
+                                                width:100%;
+                                                height:inherit
+                                              }
+                                             
+            `}
               source={{
                 html: (source1 +=
                   "<style>@import url('https://fonts.googleapis.com/css2?family=Mandali&display=swap');p strong, span, p span{font-family: 'Mandali', sans-serif;}p,li{font-family: 'Mandali', sans-serif;line-height:1.6;padding:0px 8px;color:#000;font-weight:500;font-size:18px}</style>"),
@@ -188,7 +200,8 @@ const Details = ({ navigation, relatedData, relatedLoading,
               }}
               scalesPageToFit={false}
               viewportContent={'width=device-width, user-scalable=no'}
-            /> */}
+
+            />
           </View>
           {/* Related News */}
           <View>
@@ -206,7 +219,7 @@ const Details = ({ navigation, relatedData, relatedLoading,
                   <View>
                     <TouchableOpacity
                       onPress={() => {
-                      navigation.navigate('Details', {
+                        navigation.navigate('Details', {
                           item: item,
                           // DetailsData: relatedData,
                         });
@@ -245,8 +258,141 @@ const Details = ({ navigation, relatedData, relatedLoading,
             </View>
 
           </View>
- {/* Flash News */}
- <View>
+
+          {/* next Articles */}
+          <View>
+            <FlatList
+              showsHorizontalScrollIndicator={false}
+              persistentScrollbar={false}
+              data={detailsData?.slice(
+                getIndex(),
+                getIndex() + 10,
+
+              )}
+              renderItem={({ item, index }) => (
+                <View>
+                  <View
+                    style={{
+                      padding: 10,
+                      flexDirection: 'row',
+                      justifyContent: 'space-between',
+                    }}>
+                    <View>
+                      {/* <View>
+                                                            <Feather name="chevrons-down" size={25} color={Dark_Gray} style={{ marginTop: 3 }} />
+                                                        </View> */}
+                      <View style={{ flexDirection: 'row' }}>
+                        <Feather
+                          name="chevrons-down"
+                          size={25}
+                          color={appThemeColor}
+                          style={{ marginTop: 3 }}
+                        />
+
+                        <Text style={commonstyles.nextText}>
+                          Next Article
+                        </Text>
+                      </View>
+                    </View>
+                    <View style={{}}>
+                      <TouchableOpacity
+                        onPress={() => {
+                          Share.share({
+                            message: item.link,
+                          });
+                        }}>
+                        <MaterialIcons
+                          name="share"
+                          size={20}
+                          color={appThemeColor}
+                          style={{ top: 3 }}
+                        />
+                      </TouchableOpacity>
+                    </View>
+                  </View>
+                  <View>
+                    <Image
+                      source={{ uri: item?.web_featured_image }}
+                      style={commonstyles.Detailslargecard}
+                    />
+                  </View>
+
+                  <View style={{ margin: 10 }}>
+                    <HTMLView
+                      value={'<p>' + item?.title?.rendered + '</p>'}
+                      stylesheet={headerStyles}
+                    />
+                  </View>
+
+                  <View style={{ flexDirection: 'row', start: 10 }}>
+                    <Text style={commonstyles.detailTime}>
+                      {moment(item?.date_gmt).format(
+                        'MMMM DD , YYYY',
+                      )}{' '}
+                      /{' '}
+                    </Text>
+                    <Text style={commonstyles.detailTime}>
+                      {moment(item?.modified)
+                        .utcOffset('+05:30')
+                        .format('hh.mm a')}{' '}
+                      IST{' '}
+                    </Text>
+                  </View>
+
+                  <View
+                    style={{
+                      width: screenWidth - 10,
+                      justifyContent: 'center',
+                      pointerEvents: 'none',
+                      paddingLeft: 10,
+                    }}>
+                    <AutoHeightWebView
+                      androidHardwareAccelerationDisabled // update here androidLayerType="software"
+                      customStyle={`
+                              * {
+                                font-family: 'Mandali-Bold';
+                                line-height: 1.5;
+                                -webkit-user-select: none;
+                                  -webkit-touch-callout: none; 
+                                 }
+                              p {
+                                font-size: 16px;
+                                text-align:left;
+                              padding: 0px 15px;
+                                font-family:'Mandali-Regular';
+                                line-height:35px
+                                                              }
+                                                              p img{
+                                                                width:100%;
+                                                                height:inherit
+                                                              }
+                                                              p iframe{
+                                                                width:100%;
+                                                                height:inherit
+                                                              }
+                                                              img{
+                                                                width:100%;
+                                                                height:inherit
+                                                              }
+                                                                                                                          
+                            `}
+                      source={{
+                        html: (item.content.rendered +=
+                          "<style>@import url('https://fonts.googleapis.com/css2?family=Mandali&display=swap');p strong, span, p span{font-family: 'Mandali', sans-serif;}p,li{font-family: 'Mandali', sans-serif;line-height:1.6;color:#000;font-weight:500;font-size:18px}</style>"),
+                        baseUrl: 'https://twitter.com',
+                      }}
+                      scalesPageToFit={false}
+                      viewportContent={
+                        'width=device-width, user-scalable=no'
+                      }
+                    />
+                  </View>
+                </View>
+              )}
+            />
+          </View>
+          {/* Flash News */}
+          <View>
             <View style={{ marginLeft: 10 }}>
               <Text style={commonstyles.relatedText}>Flash News</Text>
             </View>

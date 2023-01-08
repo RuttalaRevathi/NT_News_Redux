@@ -106,7 +106,8 @@ const Home = ({
     });
     setFilteredDetails(newArray);
 
-    if (loading === false && latestLoading === false && cinemaLoading === false) {
+    if (loading === false && latestLoading === false && cinemaLoading === false &&
+       rasiPhalaluLoading === false) {
       setTotalLoading(false);
     }
     else {
@@ -130,14 +131,14 @@ const Home = ({
         {/* Slider */}
         <View>
           <Carousel
-            layout="tinder"
+            layout="default"
             ref={isCarousel}
             data={sliderData?.data}
-            loop={true}
+            // loop={true}
             renderItem={({ item, index }) => (
               <TouchableOpacity
               onPress={() => {
-                navigation.navigate('Details',{item:item});
+                navigation.navigate('Details',{item:item,detailsData:sliderData?.data});
               }}>
               <View style={commonstyles.sliderView} key={index}>
                 <Image

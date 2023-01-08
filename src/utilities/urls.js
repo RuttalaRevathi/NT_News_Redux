@@ -15,6 +15,15 @@ export const Next = 'article-next-prev-by-id-api';
 export const article = 'article-data-by-id-api';
 
 // Category Urls
+export const Adilabad = 'adilabad';
+export const Karimnagar = 'karimnagar';
+export const Khammam = 'kammam';
+export const Mahabubnagar = 'mahabubnagar';
+export const Medak = 'medak';
+export const Nalgonda = 'nalgonda';
+export const Nizamabad = 'nizamabad';
+export const Rangareddy = 'rangareddy';
+export const Warangal = 'warangal-rural';
 export const Rasiphalalu = 'horoscope';
 export const Hyderabad = 'hyderabad';
 export const National = 'national';

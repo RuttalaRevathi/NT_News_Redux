@@ -20,6 +20,7 @@ import PrivacyPolicy from '../screens/contactScreens/PrivacyPolicy';
 import Terms from '../screens/contactScreens/Terms';
 import Modal from "react-native-modal";
 import SideMenu from '../components/SideMenu';
+// import WarangalScreen from '../screens/DistrictScreens/Warangal';
 
 
 const Drawer = createDrawerNavigator();
@@ -1430,10 +1431,10 @@ const DrawerNavigator = (navigation) => {
             </View>
           ),
         })}
-      />
-      <Drawer.Screen
-        name="Sahithyam"
-        component={SahithyamNews}
+      />*/}
+      {/* <Drawer.Screen
+        name="వరంగల్"
+        component={WarangalScreen}
         options={({navigation}) => ({
           headerStyle: {backgroundColor: appThemeColor},
           headerRight: () => (
@@ -1469,7 +1470,7 @@ const DrawerNavigator = (navigation) => {
             </View>
           ),
         })}
-      />*/}
+      /> */}
       <Drawer.Screen
         name="Contact"
         component={ContactUs}
