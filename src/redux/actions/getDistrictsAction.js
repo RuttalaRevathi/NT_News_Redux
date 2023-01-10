@@ -41,275 +41,275 @@ export const GET_WARANGAL_SUCCESS = 'GET_WARANGAL_SUCCESS';
 export const GET_WARANGAL_ERROR = 'GET_WARANGAL_ERROR';
 
 // warangal
-export const getWarangalAction = () => {
-  try {
-    return async dispatch => {
-      dispatch({
-        type: GET_WARANGAL,
-      });
-      const result = await fetch(BaseUrl + CategoryUrl + Warangal, {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      });
-      const json = await result.json();
-      if (json) {
-        dispatch({
-          type: GET_WARANGAL_SUCCESS,
-          payload: json,
-        });
-      } else {
-        dispatch({
-          type: GET_WARANGAL_ERROR,
-        });
-        console.log('Unable to fetch!');
-      }
-    };
-  } catch (error) {
-    console.log(error);
-  }
-};
+// export const getWarangalAction = (categoryName) => {
+//   try {
+//     return async dispatch => {
+//       dispatch({
+//         type: GET_WARANGAL,
+//       });
+//       const result = await fetch(BaseUrl + CategoryUrl + categoryName, {
+//         method: 'GET',
+//         headers: {
+//           'Content-Type': 'application/json',
+//         },
+//       });
+//       const json = await result.json();
+//       if (json) {
+//         dispatch({
+//           type: GET_WARANGAL_SUCCESS,
+//           payload: json,
+//         });
+//       } else {
+//         dispatch({
+//           type: GET_WARANGAL_ERROR,
+//         });
+//         console.log('Unable to fetch!');
+//       }
+//     };
+//   } catch (error) {
+//     console.log(error);
+//   }
+// };
 
 // Rangareddy
-export const getRangareddyAction = () => {
-  try {
-    return async dispatch => {
-      dispatch({
-        type: GET_RANGAREDDY,
-      });
-      const result = await fetch(BaseUrl + CategoryUrl + Rangareddy, {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      });
-      const json = await result.json();
-      if (json) {
-        dispatch({
-          type: GET_RANGAREDDY_SUCCESS,
-          payload: json,
-        });
-      } else {
-        dispatch({
-          type: GET_RANGAREDDY_ERROR,
-        });
-        console.log('Unable to fetch!');
-      }
-    };
-  } catch (error) {
-    console.log(error);
-  }
-};
+// export const getRangareddyAction = () => {
+//   try {
+//     return async dispatch => {
+//       dispatch({
+//         type: GET_RANGAREDDY,
+//       });
+//       const result = await fetch(BaseUrl + CategoryUrl + Rangareddy, {
+//         method: 'GET',
+//         headers: {
+//           'Content-Type': 'application/json',
+//         },
+//       });
+//       const json = await result.json();
+//       if (json) {
+//         dispatch({
+//           type: GET_RANGAREDDY_SUCCESS,
+//           payload: json,
+//         });
+//       } else {
+//         dispatch({
+//           type: GET_RANGAREDDY_ERROR,
+//         });
+//         console.log('Unable to fetch!');
+//       }
+//     };
+//   } catch (error) {
+//     console.log(error);
+//   }
+// };
 // nizamabad
-export const getNizamabadAction = () => {
-  try {
-    return async dispatch => {
-      dispatch({
-        type: GET_NIZAMABAD,
-      });
-      const result = await fetch(BaseUrl + CategoryUrl + Nizamabad, {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      });
-      const json = await result.json();
-      if (json) {
-        dispatch({
-          type: GET_NIZAMABAD_SUCCESS,
-          payload: json,
-        });
-      } else {
-        dispatch({
-          type: GET_NIZAMABAD_ERROR,
-        });
-        console.log('Unable to fetch!');
-      }
-    };
-  } catch (error) {
-    console.log(error);
-  }
-};
+// export const getNizamabadAction = () => {
+//   try {
+//     return async dispatch => {
+//       dispatch({
+//         type: GET_NIZAMABAD,
+//       });
+//       const result = await fetch(BaseUrl + CategoryUrl + Nizamabad, {
+//         method: 'GET',
+//         headers: {
+//           'Content-Type': 'application/json',
+//         },
+//       });
+//       const json = await result.json();
+//       if (json) {
+//         dispatch({
+//           type: GET_NIZAMABAD_SUCCESS,
+//           payload: json,
+//         });
+//       } else {
+//         dispatch({
+//           type: GET_NIZAMABAD_ERROR,
+//         });
+//         console.log('Unable to fetch!');
+//       }
+//     };
+//   } catch (error) {
+//     console.log(error);
+//   }
+// };
 // nalgonda
-export const getNalgondaAction = () => {
-  try {
-    return async dispatch => {
-      dispatch({
-        type: GET_NALGONDA,
-      });
-      const result = await fetch(BaseUrl + CategoryUrl + Nalgonda, {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      });
-      const json = await result.json();
-      if (json) {
-        dispatch({
-          type: GET_NALGONDA_SUCCESS,
-          payload: json,
-        });
-      } else {
-        dispatch({
-          type: GET_NALGONDA_ERROR,
-        });
-        console.log('Unable to fetch!');
-      }
-    };
-  } catch (error) {
-    console.log(error);
-  }
-};
+// export const getNalgondaAction = () => {
+//   try {
+//     return async dispatch => {
+//       dispatch({
+//         type: GET_NALGONDA,
+//       });
+//       const result = await fetch(BaseUrl + CategoryUrl + Nalgonda, {
+//         method: 'GET',
+//         headers: {
+//           'Content-Type': 'application/json',
+//         },
+//       });
+//       const json = await result.json();
+//       if (json) {
+//         dispatch({
+//           type: GET_NALGONDA_SUCCESS,
+//           payload: json,
+//         });
+//       } else {
+//         dispatch({
+//           type: GET_NALGONDA_ERROR,
+//         });
+//         console.log('Unable to fetch!');
+//       }
+//     };
+//   } catch (error) {
+//     console.log(error);
+//   }
+// };
 // Medak
-export const getMedakAction = () => {
-  try {
-    return async dispatch => {
-      dispatch({
-        type: GET_MEDAK,
-      });
-      const result = await fetch(BaseUrl + CategoryUrl + Medak, {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      });
-      const json = await result.json();
-      if (json) {
-        dispatch({
-          type: GET_MEDAK_SUCCESS,
-          payload: json,
-        });
-      } else {
-        dispatch({
-          type: GET_MEDAK_ERROR,
-        });
-        console.log('Unable to fetch!');
-      }
-    };
-  } catch (error) {
-    console.log(error);
-  }
-};
+// export const getMedakAction = () => {
+//   try {
+//     return async dispatch => {
+//       dispatch({
+//         type: GET_MEDAK,
+//       });
+//       const result = await fetch(BaseUrl + CategoryUrl + Medak, {
+//         method: 'GET',
+//         headers: {
+//           'Content-Type': 'application/json',
+//         },
+//       });
+//       const json = await result.json();
+//       if (json) {
+//         dispatch({
+//           type: GET_MEDAK_SUCCESS,
+//           payload: json,
+//         });
+//       } else {
+//         dispatch({
+//           type: GET_MEDAK_ERROR,
+//         });
+//         console.log('Unable to fetch!');
+//       }
+//     };
+//   } catch (error) {
+//     console.log(error);
+//   }
+// };
 // mahabubnagar
-export const getMahabubnagarAction = () => {
-  try {
-    return async dispatch => {
-      dispatch({
-        type: GET_MAHABUBNAGAR,
-      });
-      const result = await fetch(BaseUrl + CategoryUrl + Mahabubnagar, {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      });
-      const json = await result.json();
-      if (json) {
-        dispatch({
-          type: GET_MAHABUBNAGAR_SUCCESS,
-          payload: json,
-        });
-      } else {
-        dispatch({
-          type: GET_MAHABUBNAGAR_ERROR,
-        });
-        console.log('Unable to fetch!');
-      }
-    };
-  } catch (error) {
-    console.log(error);
-  }
-};
+// export const getMahabubnagarAction = () => {
+//   try {
+//     return async dispatch => {
+//       dispatch({
+//         type: GET_MAHABUBNAGAR,
+//       });
+//       const result = await fetch(BaseUrl + CategoryUrl + Mahabubnagar, {
+//         method: 'GET',
+//         headers: {
+//           'Content-Type': 'application/json',
+//         },
+//       });
+//       const json = await result.json();
+//       if (json) {
+//         dispatch({
+//           type: GET_MAHABUBNAGAR_SUCCESS,
+//           payload: json,
+//         });
+//       } else {
+//         dispatch({
+//           type: GET_MAHABUBNAGAR_ERROR,
+//         });
+//         console.log('Unable to fetch!');
+//       }
+//     };
+//   } catch (error) {
+//     console.log(error);
+//   }
+// };
 // adilabad
-export const getAdilabadData = () => {
-  try {
-    return async dispatch => {
-      dispatch({
-        type: GET_ADILABAD,
-      });
-      const result = await fetch(BaseUrl + CategoryUrl + Adilabad, {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      });
-      const json = await result.json();
-      if (json) {
-        dispatch({
-          type: GET_ADILABAD_SUCCESS,
-          payload: json,
-        });
-      } else {
-        dispatch({
-          type: GET_ADILABAD_ERROR,
-        });
-        console.log('Unable to fetch!');
-      }
-    };
-  } catch (error) {
-    console.log(error);
-  }
-};
+// export const getAdilabadData = () => {
+//   try {
+//     return async dispatch => {
+//       dispatch({
+//         type: GET_ADILABAD,
+//       });
+//       const result = await fetch(BaseUrl + CategoryUrl + Adilabad, {
+//         method: 'GET',
+//         headers: {
+//           'Content-Type': 'application/json',
+//         },
+//       });
+//       const json = await result.json();
+//       if (json) {
+//         dispatch({
+//           type: GET_ADILABAD_SUCCESS,
+//           payload: json,
+//         });
+//       } else {
+//         dispatch({
+//           type: GET_ADILABAD_ERROR,
+//         });
+//         console.log('Unable to fetch!');
+//       }
+//     };
+//   } catch (error) {
+//     console.log(error);
+//   }
+// };
 // karimnagar
-export const getKarimnagarData = () => {
-  try {
-    return async dispatch => {
-      dispatch({
-        type: GET_KARIMNAGAR,
-      });
-      const result = await fetch(BaseUrl + CategoryUrl + Karimnagar, {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      });
-      const json = await result.json();
-      if (json) {
-        dispatch({
-          type: GET_KARIMNAGAR_SUCCESS,
-          payload: json,
-        });
-      } else {
-        dispatch({
-          type: GET_KARIMNAGAR_ERROR,
-        });
-        console.log('Unable to fetch!');
-      }
-    };
-  } catch (error) {
-    console.log(error);
-  }
-};
+// export const getKarimnagarData = () => {
+//   try {
+//     return async dispatch => {
+//       dispatch({
+//         type: GET_KARIMNAGAR,
+//       });
+//       const result = await fetch(BaseUrl + CategoryUrl + Karimnagar, {
+//         method: 'GET',
+//         headers: {
+//           'Content-Type': 'application/json',
+//         },
+//       });
+//       const json = await result.json();
+//       if (json) {
+//         dispatch({
+//           type: GET_KARIMNAGAR_SUCCESS,
+//           payload: json,
+//         });
+//       } else {
+//         dispatch({
+//           type: GET_KARIMNAGAR_ERROR,
+//         });
+//         console.log('Unable to fetch!');
+//       }
+//     };
+//   } catch (error) {
+//     console.log(error);
+//   }
+// };
 
 // Khammam
 
-export const getKhammamAction = () => {
-  try {
-    return async dispatch => {
-      dispatch({
-        type: GET_KHAMMAM,
-      });
-      const result = await fetch(BaseUrl + CategoryUrl + Khammam, {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      });
-      const json = await result.json();
-      if (json) {
-        dispatch({
-          type: GET_KHAMMAM_SUCCESS,
-          payload: json,
-        });
-      } else {
-        dispatch({
-          type: GET_KHAMMAM_ERROR,
-        });
-        console.log('Unable to fetch!');
-      }
-    };
-  } catch (error) {
-    console.log(error);
-  }
-};
+// export const getKhammamAction = () => {
+//   try {
+//     return async dispatch => {
+//       dispatch({
+//         type: GET_KHAMMAM,
+//       });
+//       const result = await fetch(BaseUrl + CategoryUrl + Khammam, {
+//         method: 'GET',
+//         headers: {
+//           'Content-Type': 'application/json',
+//         },
+//       });
+//       const json = await result.json();
+//       if (json) {
+//         dispatch({
+//           type: GET_KHAMMAM_SUCCESS,
+//           payload: json,
+//         });
+//       } else {
+//         dispatch({
+//           type: GET_KHAMMAM_ERROR,
+//         });
+//         console.log('Unable to fetch!');
+//       }
+//     };
+//   } catch (error) {
+//     console.log(error);
+//   }
+// };

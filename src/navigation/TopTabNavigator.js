@@ -26,7 +26,16 @@ import CookingScreen from '../screens/TopTabScreens/Cooking';
 import VaasthuScreen from '../screens/TopTabScreens/Vaasthu';
 import LatestNews from '../screens/LatestNews';
 import Videos from '../screens/TopTabScreens/Videos';
-// import WarangalScreen from '../screens/DistrictScreens/Warangal';
+import Warangal from '../screens/DistrictScreens/Warangal';
+import Rangareddy from '../screens/DistrictScreens/Rangareddy';
+import Nalgonda from '../screens/DistrictScreens/Nalgonda';
+import Nizamabad from '../screens/DistrictScreens/Nizamabad';
+import Adilabad from '../screens/DistrictScreens/Adilabad';
+import Karimnagar from '../screens/DistrictScreens/Karimnagar';
+import Khammam from '../screens/DistrictScreens/Khammam';
+import Medak from '../screens/DistrictScreens/Medak';
+import Mahabubnagar from '../screens/DistrictScreens/Mahabubnagar';
+
 
 
 
@@ -94,7 +103,16 @@ const TopTabNavigator = () => {
       <TopTab.Screen name="వ్యవసాయం" component={AgricultureScreen} />
       <TopTab.Screen name="వంటలు" component={CookingScreen} />
       <TopTab.Screen name="వాస్తు" component={VaasthuScreen} />
-      {/* <TopTab.Screen name="వరంగల్" component={WarangalScreen} /> */}
+      {/* <TopTab.Screen name="ఆదిలాబాద్" component={Adilabad} />
+      <TopTab.Screen name="కరీంనగర్‌" component={Karimnagar} />
+      <TopTab.Screen name="ఖమ్మం" component={Khammam} />
+      <TopTab.Screen name="మెహబూబ్ నగర్" component={Mahabubnagar} />
+      <TopTab.Screen name="మెదక్" component={Medak} />
+      <TopTab.Screen name="నల్గొండ" component={Nalgonda} />
+      <TopTab.Screen name="నిజామాబాద్" component={Nizamabad} />
+      <TopTab.Screen name="రంగారెడ్డి" component={Rangareddy} />
+      <TopTab.Screen name="వరంగల్" component={Warangal} /> */}
+
 
     
     </TopTab.Navigator>

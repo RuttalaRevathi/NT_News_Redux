@@ -258,7 +258,7 @@ export default class SideMenu extends Component {
                                 this.props.navigation.navigate('ఫొటోలు');
                             }}
                         />
-                        {/* <DrawerItem
+                        <DrawerItem
                             style={sideMenuStyle.item}
                             icon={({ color, size }) => (
                                 <Image
@@ -271,7 +271,7 @@ export default class SideMenu extends Component {
                             onPress={() => {
                                 this.props.navigation.navigate('వీడియోలు');
                             }}
-                        /> */}
+                        />
                         <DrawerItem
                             style={sideMenuStyle.item}
                             icon={({ color, size }) => (

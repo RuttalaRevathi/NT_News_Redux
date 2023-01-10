@@ -26,8 +26,8 @@ const sharecall = (name) => {
 };
 function CategoryUI(props, { navigation }) {
   useEffect(() => {
-    // console.log(props.data,"categorydata");            
-  })
+    // console.log(props.data,"categorydata");
+  });
 
   return (
     <SafeAreaView styles={commonstyles.container}>
@@ -55,7 +55,7 @@ function CategoryUI(props, { navigation }) {
                   <TouchableOpacity
                     onPress={() => {
                       props.navigation.navigate('Details', {
-                        item: item,detailsData:props.data?.data
+                        item: item,detailsData:props.data?.data,
                       });
                     }}>
                     <View style={commonstyles.sliderView}>
@@ -87,7 +87,7 @@ function CategoryUI(props, { navigation }) {
                   <TouchableOpacity
                     onPress={() => {
                       props.navigation.navigate('Details', {
-                        item: item,detailsData:props?.data
+                        item: item,detailsData:props.data?.data,
                       });
                     }}>
                     <View style={commonstyles.cardView}>
@@ -133,5 +133,5 @@ function CategoryUI(props, { navigation }) {
         } */}
     </SafeAreaView>
   );
-};
+}
 export default CategoryUI;

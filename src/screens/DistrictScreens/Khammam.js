@@ -1,44 +1,44 @@
 /* eslint-disable prettier/prettier */
 import React, { useEffect } from 'react';
 import { useDispatch, connect } from 'react-redux';
-import getApAction from '../../redux/actions/getApAction';
+import getKhammamAction from '../../redux/actions/getKhammamAction';
 import CategoryUI from '../../components/CategoryUI';
 
 
-const ApScreen = ({
+const KhammamScreen = ({
     navigation,
-    apData,
-    apLoading,
+    khammamData,
+    khammamLoading,
     route,
 }: Props) => {
 
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(getApAction('andhrapradesh-news'));
+        dispatch(getKhammamAction());
 
     }, []);
     // share function
 
     return (
         <CategoryUI
-        data = {apData}
+        data = {khammamData}
         navigation = {navigation}
         title = {route.name}
-        categoryName ="andhrapradesh-news"
+        categoryName ="kammam"
         />
     );
 };
 
 type Props = {
-    apData: Function,
-    apLoading: Boolean,
+    khammamData: Function,
+    khammamLoading: Boolean,
 };
 const mapStateToProps = state => ({
-    apData: state.apReducer?.apData,
-    apLoading: state.apReducer?.apLoading,
+    khammamData: state.khammamReducer?.khammamData,
+    khammamLoading: state.khammamReducer?.khammamLoading,
 });
 const mapDispatchToProps = {
-    getApAction,
+    getKhammamAction,
 };
-export default connect(mapStateToProps, mapDispatchToProps)(ApScreen);
+export default connect(mapStateToProps, mapDispatchToProps)(KhammamScreen);

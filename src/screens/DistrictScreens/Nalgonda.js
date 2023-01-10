@@ -1,44 +1,44 @@
 /* eslint-disable prettier/prettier */
 import React, { useEffect } from 'react';
 import { useDispatch, connect } from 'react-redux';
-import getApAction from '../../redux/actions/getApAction';
+import getNalgondaAction from '../../redux/actions/getNalgondaAction';
 import CategoryUI from '../../components/CategoryUI';
 
 
-const ApScreen = ({
+const NalgondaScreen = ({
     navigation,
-    apData,
-    apLoading,
+    nalgondaData,
+    nalgondaLoading,
     route,
 }: Props) => {
 
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(getApAction('andhrapradesh-news'));
+        dispatch(getNalgondaAction());
 
     }, []);
     // share function
 
     return (
         <CategoryUI
-        data = {apData}
+        data = {nalgondaData}
         navigation = {navigation}
         title = {route.name}
-        categoryName ="andhrapradesh-news"
+        categoryName ="nalgonda"
         />
     );
 };
 
 type Props = {
-    apData: Function,
-    apLoading: Boolean,
+    nalgondaData: Function,
+    nalgondaLoading: Boolean,
 };
 const mapStateToProps = state => ({
-    apData: state.apReducer?.apData,
-    apLoading: state.apReducer?.apLoading,
+    nalgondaData: state.nalgondaReducer?.nalgondaData,
+    nalgondaLoading: state.nalgondaReducer?.nalgondaLoading,
 });
 const mapDispatchToProps = {
-    getApAction,
+    getNalgondaAction,
 };
-export default connect(mapStateToProps, mapDispatchToProps)(ApScreen);
+export default connect(mapStateToProps, mapDispatchToProps)(NalgondaScreen);

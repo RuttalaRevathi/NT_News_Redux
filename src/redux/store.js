@@ -29,7 +29,7 @@ import karimnagarReducer from '../redux/reducers/districtsReducer';
 import khammamReducer from '../redux/reducers/districtsReducer';
 import mahabubnagarReducer from '../redux/reducers/districtsReducer';
 import medakReducer from '../redux/reducers/districtsReducer';
-import nalgondareducer from '../redux/reducers/districtsReducer';
+import nalgondaReducer from '../redux/reducers/districtsReducer';
 import nizamabadReducer from '../redux/reducers/districtsReducer';
 import rangareddyReducer from '../redux/reducers/districtsReducer';
 import warangalReducer from '../redux/reducers/districtsReducer';
@@ -45,6 +45,6 @@ cinemaReducer,rasiPhalauReducer,cartoonReducer,healthReducer,telanganaReducer,ap
 nationalReducer,interNationalReducer,sportsReducer,businessReducer,nriReducer,relatedReducer,
 photosGalleryReducer,editPageReducer,zindagiReducer,bathukammaReducer,agricultureReducer,
 cookingReducer,vaasthuReducer,videoReducer,adilabadReducer,karimnagarReducer,khammamReducer,
-mahabubnagarReducer,medakReducer,nalgondareducer,nizamabadReducer,rangareddyReducer,warangalReducer
+mahabubnagarReducer,medakReducer,nalgondaReducer,nizamabadReducer,rangareddyReducer,warangalReducer
 });
 export const store = createStore(rootReducer, applyMiddleware(thunk));

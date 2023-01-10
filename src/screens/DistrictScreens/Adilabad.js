@@ -1,44 +1,44 @@
 /* eslint-disable prettier/prettier */
 import React, { useEffect } from 'react';
 import { useDispatch, connect } from 'react-redux';
-import getApAction from '../../redux/actions/getApAction';
+import getAdilabadAction from '../../redux/actions/getAdilabadAction';
 import CategoryUI from '../../components/CategoryUI';
 
 
-const ApScreen = ({
+const AdilabadScreen = ({
     navigation,
-    apData,
-    apLoading,
+    adilabadData,
+    adilabadLoading,
     route,
 }: Props) => {
 
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(getApAction('andhrapradesh-news'));
+        dispatch(getAdilabadAction());
 
     }, []);
     // share function
 
     return (
         <CategoryUI
-        data = {apData}
+        data = {adilabadData}
         navigation = {navigation}
         title = {route.name}
-        categoryName ="andhrapradesh-news"
+        categoryName ="adilabad"
         />
     );
 };
 
 type Props = {
-    apData: Function,
-    apLoading: Boolean,
+    adilabadData: Function,
+    adilabadLoading: Boolean,
 };
 const mapStateToProps = state => ({
-    apData: state.apReducer?.apData,
-    apLoading: state.apReducer?.apLoading,
+    adilabadData: state.adilabadReducer?.adilabadData,
+    adilabadLoading: state.adilabadReducer?.adilabadLoading,
 });
 const mapDispatchToProps = {
-    getApAction,
+    getAdilabadAction,
 };
-export default connect(mapStateToProps, mapDispatchToProps)(ApScreen);
+export default connect(mapStateToProps, mapDispatchToProps)(AdilabadScreen);

@@ -9,6 +9,8 @@ import Details from '../../screens/Details';
 import PhotoArticle from '../../screens/PhotoArticle';
 
 import TopTabNavigator from '../TopTabNavigator';
+import VideoArticle from '../../screens/VideoArticle';
+import CartoonArticle from '../../screens/CartoonArticle';
 
 const Stack = createStackNavigator();
 
@@ -24,6 +26,9 @@ const HomeStackNavigator = () => {
       <Stack.Screen name="Home" component={TopTabNavigator} />
       <Stack.Screen name="Details" component={Details} />
       <Stack.Screen name="PhotoArticle" component={PhotoArticle} />
+      <Stack.Screen name="VideoArticle" component={VideoArticle} />
+      <Stack.Screen name="CartoonArticle" component={CartoonArticle} />
+
 
     </Stack.Navigator>
   )

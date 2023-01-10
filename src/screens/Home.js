@@ -74,7 +74,7 @@ const Home = ({
   agricultureLoading, cookingData,
   cookingLoading, vaasthuData,
   vaasthuLoading, videoData,
-  videoLoading,photosData,
+  videoLoading, photosData,
   photosLoading,
 }: Props) => {
 
@@ -105,14 +105,14 @@ const Home = ({
     dispatch(getAgricultureAction());
     dispatch(getCookingAction());
     dispatch(getVaasthuAction());
-    dispatch(getVideoAction())
-    dispatch(getPhotoGalleryAction())
+    dispatch(getVideoAction());
+    dispatch(getPhotoGalleryAction());
     var newArray = sliderData?.data?.filter(function (elem, pos) {
       return sliderData?.data?.indexOf(elem) == pos;
     });
     setFilteredDetails(newArray);
 
-    if (loading === false && latestLoading === false && cinemaLoading === false &&
+    if (loading === false && latestLoading === false && (cinemaLoading === false) &&
       rasiPhalaluLoading === false) {
       setTotalLoading(false);
     }
@@ -245,6 +245,7 @@ const Home = ({
                         onPress={() => {
                           navigation.navigate('CartoonArticle', {
                             item: item,
+                            detailsData: cartoonData?.data,
                           });
                         }}>
                         <Image
@@ -316,57 +317,57 @@ const Home = ({
             </View>
             {/* photo gallery  Cards*/}
             <View>
-                <View>
-                  <FlatList
-                    data={photosData?.data}
-                    showsHorizontalScrollIndicator={false}
-                    horizontal={true}
-                    renderItem={({ item, index }) => (
-                      <View style={{ marginRight: 5, marginLeft: 10 }}>
-                        <TouchableOpacity
-                          onPress={() => {
-                            this.props.navigation.navigate(
-                              'PhotoGalleryArticle',
-                              {
-                                item: item,
-                                detailsData:photosData?.data
-                              },
-                            );
-                          }}>
-                          <View style={commonstyles.sliderView}>
-                            <Image
-                              source={{ uri: item.web_featured_image }}
-                              style={commonstyles.photocard}
-                            />
-                            <LinearGradient
-                              colors={['transparent', 'white']}
-                              style={commonstyles.linearGradient}
-                              start={{ x: 0.5, y: 0.2 }}
-                              locations={[0.2, 0.8]}>
-                              <Text
-                                numberOfLines={2}
-                                ellipsizeMode="tail"
-                                style={commonstyles.phototext}>
-                                {item.title.rendered}
-                              </Text>
-                            </LinearGradient>
-                          </View>
-                        </TouchableOpacity>
-                      </View>
-                    )}
-                  />
-                  {/* more text */}
-                  <View style={commonstyles.moreview}>
-                    <TouchableOpacity
-                      onPress={() => {
-                        this.props.navigation.navigate('Photos');
-                      }}>
-                      <Text style={commonstyles.moretext}>More . . .</Text>
-                    </TouchableOpacity>
-                  </View>
-                </View>
-              
+              <View>
+                <FlatList
+                  data={photosData?.data}
+                  showsHorizontalScrollIndicator={false}
+                  horizontal={true}
+                  renderItem={({ item, index }) => (
+                    <View style={{ marginRight: 5, marginLeft: 10 }}>
+                      <TouchableOpacity
+                        onPress={() => {
+                          this.props.navigation.navigate(
+                            'PhotoGalleryArticle',
+                            {
+                              item: item,
+                              detailsData: photosData?.data,
+                            },
+                          );
+                        }}>
+                        <View style={commonstyles.sliderView}>
+                          <Image
+                            source={{ uri: item.web_featured_image }}
+                            style={commonstyles.photocard}
+                          />
+                          <LinearGradient
+                            colors={['transparent', 'white']}
+                            style={commonstyles.linearGradient}
+                            start={{ x: 0.5, y: 0.2 }}
+                            locations={[0.2, 0.8]}>
+                            <Text
+                              numberOfLines={2}
+                              ellipsizeMode="tail"
+                              style={commonstyles.phototext}>
+                              {item.title.rendered}
+                            </Text>
+                          </LinearGradient>
+                        </View>
+                      </TouchableOpacity>
+                    </View>
+                  )}
+                />
+              </View>
+
             </View>
+          </View>
+          {/* more text */}
+          <View style={commonstyles.moreview}>
+            <TouchableOpacity
+              onPress={() => {
+                navigation.navigate('ఫొటోలు');
+              }}>
+              <Text style={commonstyles.moretext}>More . . .</Text>
+            </TouchableOpacity>
           </View>
         </View>
 
@@ -382,67 +383,68 @@ const Home = ({
             </View>
             {/* videos  Cards*/}
             <View>
-                <View>
-                  <FlatList
-                    data={videoData?.data}
-                    showsHorizontalScrollIndicator={false}
-                    horizontal={true}
-                    renderItem={({ item, index }) => (
-                      <View style={{ marginRight: 5, marginLeft: 10 }}>
-                        <TouchableOpacity
-                          onPress={() => {
-                            this.props.navigation.navigate('VideoArticle', {
-                              item: item,
-                                detailsData:videoData?.data
-                            });
-                          }}>
-                          <View style={commonstyles.sliderView}>
-                            <ImageBackground
-                              imageStyle={{ borderRadius: 6 }}
-                              source={{ uri: item.web_featured_image }}
-                              style={commonstyles.videocard}>
-                              <View
-                                style={{
-                                  justifyContent: 'center',
-                                  alignContent: 'center',
-                                  alignSelf: 'center',
-                                  marginVertical: 100,
-                                }}>
-                                <Image
-                                  style={{ width: 30, height: 20 }}
-                                  source={require('../Assets/Images/videoicon.png')}
-                                />
-                              </View>
-                            </ImageBackground>
-                            <LinearGradient
-                              colors={['transparent', 'white']}
-                              style={commonstyles.linearGradient}
-                              start={{ x: 0.5, y: 0.2 }}
-                              locations={[0.2, 0.8]}>
-                              <Text
-                                numberOfLines={2}
-                                ellipsizeMode="tail"
-                                style={commonstyles.phototext}>
-                                {item.title.rendered}
-                              </Text>
-                            </LinearGradient>
-                          </View>
-                        </TouchableOpacity>
-                      </View>
-                    )}
-                  />
-                  {/* more text */}
-                  <View style={commonstyles.moreview}>
-                    <TouchableOpacity
-                      onPress={() => {
-                        this.props.navigation.navigate('Videos');
-                      }}>
-                      <Text style={commonstyles.moretext}>More . . .</Text>
-                    </TouchableOpacity>
-                  </View>
-                </View>
-            
+              <View>
+                <FlatList
+                  data={videoData?.data}
+                  showsHorizontalScrollIndicator={false}
+                  horizontal={true}
+                  renderItem={({ item, index }) => (
+                    <View style={{ marginRight: 5, marginLeft: 10 }}>
+                      <TouchableOpacity
+                        onPress={() => {
+                          navigation.navigate('VideoArticle', {
+                            item: item,
+                            detailsData: videoData?.data,
+                          });
+                        }}>
+                        <View style={commonstyles.sliderView}>
+                          <ImageBackground
+                            imageStyle={{ borderRadius: 6 }}
+                            source={{ uri: item.web_featured_image }}
+                            style={commonstyles.videocard}>
+                            <View
+                              style={{
+                                justifyContent: 'center',
+                                alignContent: 'center',
+                                alignSelf: 'center',
+                                marginVertical: 100,
+                              }}>
+                              <Image
+                                style={{ width: 30, height: 20 }}
+                                source={require('../Assets/Images/videoicon.png')}
+                              />
+                            </View>
+                          </ImageBackground>
+                          <LinearGradient
+                            colors={['transparent', 'white']}
+                            style={commonstyles.linearGradient}
+                            start={{ x: 0.5, y: 0.2 }}
+                            locations={[0.2, 0.8]}>
+                            <Text
+                              numberOfLines={2}
+                              ellipsizeMode="tail"
+                              style={commonstyles.phototext}>
+                              {item.title.rendered}
+                            </Text>
+                          </LinearGradient>
+                        </View>
+                      </TouchableOpacity>
+                    </View>
+                  )}
+                />
+
+              </View>
+
             </View>
+          </View>
+          {/* more text */}
+          <View style={commonstyles.moreview}>
+            <TouchableOpacity
+              onPress={() => {
+                this.props.navigation.navigate('వీడియోలు');
+              }}>
+              <Text style={commonstyles.moretext}>More . . .</Text>
+            </TouchableOpacity>
           </View>
         </View>
         {/* national */}
@@ -645,7 +647,7 @@ const mapDispatchToProps = {
   getCookingAction,
   getVaasthuAction,
   getVideoAction,
-  getPhotoGalleryAction
+  getPhotoGalleryAction,
 
 };
 export default connect(mapStateToProps, mapDispatchToProps)(Home);

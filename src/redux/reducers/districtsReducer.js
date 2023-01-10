@@ -124,7 +124,7 @@ function medakReducer(state = initialState, action) {
       }
 }
 // nalgonda
-function nalgondareducer(state = initialState, action) {
+function nalgondaReducer(state = initialState, action) {
     switch (action.type) {
         case GET_NALGONDA:
           return {...state, nalgondaLoading: false};
@@ -177,4 +177,4 @@ function warangalReducer(state = initialState, action) {
 }
 
 export default (adilabadReducer,karimnagarReducer,khammamReducer,mahabubnagarReducer,medakReducer,
-    nalgondareducer,nizamabadReducer,rangareddyReducer,warangalReducer);
+    nalgondaReducer,nizamabadReducer,rangareddyReducer,warangalReducer);

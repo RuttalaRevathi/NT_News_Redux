@@ -28,7 +28,7 @@ const PhotoGallery = ({
     dispatch(getPhotoGalleryAction());
   }, []);
   // share function
-  console.log('photosData', photosData?.data);
+  // console.log('photosData', photosData?.data);
   return (
     <SafeAreaView styles={commonstyles.container}>
       <SubHeader

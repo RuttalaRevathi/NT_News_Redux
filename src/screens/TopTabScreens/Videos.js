@@ -55,7 +55,12 @@ const Videos = ({
 
                                 <View style={{ flex: 1 }}>
                                     <View >
-                                        <TouchableOpacity onPress={() => { navigation.navigate("VideoArticle", { item: item }) }}  >
+                                        <TouchableOpacity onPress={() => {
+                                            navigation.navigate('VideoArticle', {
+                                                item: item,
+                                                detailsData: videoData?.data,
+                                            });
+                                        }}  >
                                             <View style={commonstyles.latestMainView}>
                                                 <View style={commonstyles.latestsubView}>
                                                     <View>
@@ -66,7 +71,7 @@ const Videos = ({
                                                             <Image style={{ height: 15, width: 25, borderRadius: 10 }}
                                                                 source={require('../../Assets/Images/videoicon.png')} />
                                                         </View>
-                                                        <Text numberOfLines={2} ellipsizeMode='tail'
+                                                        <Text numberOfLines={2} ellipsizeMode="tail"
                                                             style={commonstyles.latestTxtTag}>{item?.title?.rendered}
                                                         </Text>
                                                     </View>

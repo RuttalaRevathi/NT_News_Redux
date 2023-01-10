@@ -1,44 +1,43 @@
 /* eslint-disable prettier/prettier */
 import React, { useEffect } from 'react';
 import { useDispatch, connect } from 'react-redux';
-import getApAction from '../../redux/actions/getApAction';
+import getNizamabadAction from '../../redux/actions/getNizamabadAction';
 import CategoryUI from '../../components/CategoryUI';
 
 
-const ApScreen = ({
+const NizamabadScreen = ({
     navigation,
-    apData,
-    apLoading,
+    nizamabadData,
+    nizamabadLoading,
     route,
 }: Props) => {
 
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(getApAction('andhrapradesh-news'));
+        dispatch(getNizamabadAction());
 
     }, []);
-    // share function
 
     return (
         <CategoryUI
-        data = {apData}
+        data = {nizamabadData}
         navigation = {navigation}
         title = {route.name}
-        categoryName ="andhrapradesh-news"
+        categoryName ="nizamabad"
         />
     );
 };
 
 type Props = {
-    apData: Function,
-    apLoading: Boolean,
+    nizamabadData: Function,
+    nizamabadLoading: Boolean,
 };
 const mapStateToProps = state => ({
-    apData: state.apReducer?.apData,
-    apLoading: state.apReducer?.apLoading,
+    nizamabadData: state.nizamabadReducer?.nizamabadData,
+    nizamabadLoading: state.nizamabadReducer?.nizamabadLoading,
 });
 const mapDispatchToProps = {
-    getApAction,
+    getNizamabadAction,
 };
-export default connect(mapStateToProps, mapDispatchToProps)(ApScreen);
+export default connect(mapStateToProps, mapDispatchToProps)(NizamabadScreen);

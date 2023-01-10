@@ -1,44 +1,44 @@
 /* eslint-disable prettier/prettier */
 import React, { useEffect } from 'react';
 import { useDispatch, connect } from 'react-redux';
-import getApAction from '../../redux/actions/getApAction';
+import getMedakAction from '../../redux/actions/getMedakAction';
 import CategoryUI from '../../components/CategoryUI';
 
 
-const ApScreen = ({
+const MedakScreen = ({
     navigation,
-    apData,
-    apLoading,
+    medakData,
+    medakLoading,
     route,
 }: Props) => {
 
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(getApAction('andhrapradesh-news'));
+        dispatch(getMedakAction());
 
     }, []);
     // share function
 
     return (
         <CategoryUI
-        data = {apData}
+        data = {medakData}
         navigation = {navigation}
         title = {route.name}
-        categoryName ="andhrapradesh-news"
+        categoryName ="medak"
         />
     );
 };
 
 type Props = {
-    apData: Function,
-    apLoading: Boolean,
+    medakData: Function,
+    medakLoading: Boolean,
 };
 const mapStateToProps = state => ({
-    apData: state.apReducer?.apData,
-    apLoading: state.apReducer?.apLoading,
+    medakData: state.medakReducer?.medakData,
+    medakLoading: state.medakReducer?.medakLoading,
 });
 const mapDispatchToProps = {
-    getApAction,
+    getMedakAction,
 };
-export default connect(mapStateToProps, mapDispatchToProps)(ApScreen);
+export default connect(mapStateToProps, mapDispatchToProps)(MedakScreen);

@@ -1,8 +1,9 @@
 /* eslint-disable prettier/prettier */
 import React, { useEffect } from 'react';
 import { useDispatch, connect } from 'react-redux';
-import getWarangalAction from '../../redux/actions/getDistrictsAction';
+// import getWarangalAction from '../../redux/actions/getDistrictsAction';
 import CategoryUI from '../../components/CategoryUI';
+import { getWarangalAction } from '../../redux/actions/getWarangalAction';
 
 
 const WarangalScreen = ({
@@ -15,7 +16,7 @@ const WarangalScreen = ({
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(getWarangalAction('warangal-rura'));
+        dispatch(getWarangalAction());
 
     }, []);
     // share function

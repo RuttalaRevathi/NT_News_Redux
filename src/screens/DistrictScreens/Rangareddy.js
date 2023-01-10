@@ -1,44 +1,44 @@
 /* eslint-disable prettier/prettier */
 import React, { useEffect } from 'react';
 import { useDispatch, connect } from 'react-redux';
-import getApAction from '../../redux/actions/getApAction';
 import CategoryUI from '../../components/CategoryUI';
+import { getRangareddyAction } from '../../redux/actions/getRangareddyAction';
 
 
-const ApScreen = ({
+const RangareddyScreen = ({
     navigation,
-    apData,
-    apLoading,
+    rangareddyData,
+    rangareddyLoading,
     route,
 }: Props) => {
 
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(getApAction('andhrapradesh-news'));
+        dispatch(getRangareddyAction());
 
     }, []);
     // share function
 
     return (
         <CategoryUI
-        data = {apData}
+        data = {rangareddyData}
         navigation = {navigation}
         title = {route.name}
-        categoryName ="andhrapradesh-news"
+        categoryName ="rangareddy"
         />
     );
 };
 
 type Props = {
-    apData: Function,
-    apLoading: Boolean,
+    rangareddyData: Function,
+    rangareddyLoading: Boolean,
 };
 const mapStateToProps = state => ({
-    apData: state.apReducer?.apData,
-    apLoading: state.apReducer?.apLoading,
+    rangareddyData: state.rangareddyReducer?.rangareddyData,
+    rangareddyLoading: state.rangareddyReducer?.rangareddyLoading,
 });
 const mapDispatchToProps = {
-    getApAction,
+    getRangareddyAction,
 };
-export default connect(mapStateToProps, mapDispatchToProps)(ApScreen);
+export default connect(mapStateToProps, mapDispatchToProps)(RangareddyScreen);

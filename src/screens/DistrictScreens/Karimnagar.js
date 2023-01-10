@@ -1,44 +1,44 @@
 /* eslint-disable prettier/prettier */
 import React, { useEffect } from 'react';
 import { useDispatch, connect } from 'react-redux';
-import getApAction from '../../redux/actions/getApAction';
+import getKarimnagarAction from '../../redux/actions/getKarimnagarAction';
 import CategoryUI from '../../components/CategoryUI';
 
 
-const ApScreen = ({
+const KarimnagarScreen = ({
     navigation,
-    apData,
-    apLoading,
+    karimnagarData,
+    karimnagarLoading,
     route,
 }: Props) => {
 
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(getApAction('andhrapradesh-news'));
+        dispatch(getKarimnagarAction());
 
     }, []);
     // share function
 
     return (
         <CategoryUI
-        data = {apData}
+        data = {karimnagarData}
         navigation = {navigation}
         title = {route.name}
-        categoryName ="andhrapradesh-news"
+        categoryName ="karimnagar"
         />
     );
 };
 
 type Props = {
-    apData: Function,
-    apLoading: Boolean,
+    karimnagarData: Function,
+    karimnagarLoading: Boolean,
 };
 const mapStateToProps = state => ({
-    apData: state.apReducer?.apData,
-    apLoading: state.apReducer?.apLoading,
+    karimnagarData: state.karimnagarReducer?.karimnagarData,
+    karimnagarLoading: state.karimnagarReducer?.karimnagarLoading,
 });
 const mapDispatchToProps = {
-    getApAction,
+    getKarimnagarAction,
 };
-export default connect(mapStateToProps, mapDispatchToProps)(ApScreen);
+export default connect(mapStateToProps, mapDispatchToProps)(KarimnagarScreen);
