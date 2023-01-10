@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Image, Linking, ScrollView, FlatList, Share, Dimensions } from 'react-native';
 import { appThemeColor, commonstyles, Header_text } from '../styles/commonstyles';
 import WebView from 'react-native-webview';
@@ -35,8 +35,10 @@ const Details = ({ navigation, relatedData, relatedLoading,
   useEffect(() => {
     goToTop();
   }, []);
+  const Scrollref = useRef(null);
+
   const goToTop = () => {
-    this.scroll.scrollTo({ x: 0, y: 0, animated: true });}
+    Scrollref.current?.scrollTo({ x: 0, y: 0, animated: true });}
   const getIndex = () => {
     var index = detailsData.findIndex(
       x => x.id == route?.params?.item?.id,
@@ -228,9 +230,7 @@ return (
         </View>
 =======
       <ScrollView
-       ref={c => {
-        this.scroll = c;
-      }}>
+       ref={Scrollref}>
         <View>
           <View>
             <FastImage
