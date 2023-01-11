@@ -10,6 +10,7 @@ import {
   SafeAreaView,
   Share,
 } from 'react-native';
+import FastImage from 'react-native-fast-image';
 import { appThemeColor, commonstyles } from '../styles/commonstyles';
 import SubHeader from '../components/SubHeader';
 import LinearGradient from 'react-native-linear-gradient';
@@ -57,9 +58,9 @@ function HomeUI(props, { navigation }) {
                         <View style={commonstyles.latestMainView}>
                           <View style={commonstyles.latestsubView}>
                             <View>
-                              <Image
+                              <FastImage
                                 style={commonstyles.latestimgTag}
-                                source={{ uri: item?.web_featured_image }}
+                                source={{ uri: item?.web_featured_image, cache: FastImage.cacheControl.immutable}}
                               />
                             </View>
                             <View>
@@ -85,13 +86,19 @@ function HomeUI(props, { navigation }) {
                   renderItem={({ item, index }) => (
                     <View>
                       <TouchableOpacity
+<<<<<<< HEAD
                         onPress={() => {
                           props.navigation.navigate('Details', {item: item,detailsData:props?.data});
                         }}>
+=======
+                       onPress={() => {
+                         props.navigation.navigate('Details', { item: item,detailsData:props?.data });
+                       }}>
+>>>>>>> d6475f5 (district categories)
                         <View style={commonstyles.cardViewHome}>
                           <View style={commonstyles.cateviewImg}>
-                            <Image
-                              source={{ uri: item?.web_featured_image }}
+                            <FastImage
+                              source={{ uri: item?.web_featured_image , cache: FastImage.cacheControl.immutable}}
                               style={commonstyles.cateImage}
                             />
                           </View>

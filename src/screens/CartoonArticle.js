@@ -12,6 +12,11 @@ import HTMLView from 'react-native-htmlview';
 import moment from 'moment';
 import { connect, useDispatch } from 'react-redux';
 import getRelatedAction from '../redux/actions/getRelatedAction';
+<<<<<<< HEAD
+=======
+import FastImage from 'react-native-fast-image';
+
+>>>>>>> d6475f5 (district categories)
 const screenWidth = Dimensions.get('window').width;
 
 // let decode = require('html-entities-decoder');

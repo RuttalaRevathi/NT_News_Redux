@@ -1,19 +1,19 @@
 /* eslint-disable prettier/prettier */
 
-import { BaseUrl, CategoryUrl} from '../../utilities/urls';
+import { Ap, BaseUrl, CategoryUrl} from '../../utilities/urls';
 
 export const GET_AP_SUCCESS = 'GET_AP_SUCCESS';
 export const GET_AP_ERROR = 'GET_AP_ERROR';
 export const GET_AP = 'GET_AP';
 
- const getApAction = (categoryName) => {
+ const getApAction = () => {
 
     try {
       return async dispatch => {
         dispatch({
           type: GET_AP,
         });
-        const result = await fetch(BaseUrl + CategoryUrl + categoryName, {
+        const result = await fetch(BaseUrl + CategoryUrl + Ap, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',

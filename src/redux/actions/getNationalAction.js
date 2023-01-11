@@ -1,19 +1,19 @@
 /* eslint-disable prettier/prettier */
 
-import { BaseUrl, CategoryUrl} from '../../utilities/urls';
+import { BaseUrl, CategoryUrl, National} from '../../utilities/urls';
 
 export const GET_NATIONAL_SUCCESS = 'GET_NATIONAL_SUCCESS';
 export const GET_NATIONAL_ERROR = 'GET_NATIONAL_ERROR';
 export const GET_NATIONAL = 'GET_NATIONAL';
 
- const getNationalAction = (categoryName) => {
+ const getNationalAction = () => {
 
     try {
       return async dispatch => {
         dispatch({
           type: GET_NATIONAL,
         });
-        const result = await fetch(BaseUrl + CategoryUrl + categoryName, {
+        const result = await fetch(BaseUrl + CategoryUrl + National, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',

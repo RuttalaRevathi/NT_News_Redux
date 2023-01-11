@@ -15,11 +15,11 @@ import {
   function cookingReducer(state = initialState, action) {
     switch (action.type) {
       case GET_COOKING:
-        return {...state, cookingLoading: false};
+        return {...state, cookingLoading: true};
       case GET_COOKING_SUCCESS:
-        return {...state, cookingData: action.payload, cookingLoading: true};
+        return {...state, cookingData: action.payload, cookingLoading: false};
               case GET_COOKING_ERROR:
-  return {...state, cookingLoading: false, error: true};
+  return {...state, cookingLoading: true, error: true};
       default:
         return state;
     }

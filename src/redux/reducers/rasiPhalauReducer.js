@@ -15,11 +15,11 @@ import {
   function rasiPhalauReducer(state = initialState, action) {
     switch (action.type) {
       case GET_RASIPHALALU:
-        return {...state, rasiPhalaluLoading: false};
+        return {...state, rasiPhalaluLoading: true};
       case GET_RASIPHALALU_SUCCESS:
-        return {...state, rasiPhalaluData: action.payload, rasiPhalaluLoading: true};
+        return {...state, rasiPhalaluData: action.payload, rasiPhalaluLoading: false};
               case GET_RASIPHALALU_ERROR:
-  return {...state, rasiPhalaluLoading: false, error: true};
+  return {...state, rasiPhalaluLoading: true, error: true};
       default:
         return state;
     }

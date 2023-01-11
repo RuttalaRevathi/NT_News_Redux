@@ -15,11 +15,11 @@ import {
   function nationalReducer(state = initialState, action) {
     switch (action.type) {
       case GET_NATIONAL:
-        return {...state, nationalLoading: false};
+        return {...state, nationalLoading: true};
       case GET_NATIONAL_SUCCESS:
-        return {...state, nationalData: action.payload, nationalLoading: true};
+        return {...state, nationalData: action.payload, nationalLoading: false};
               case GET_NATIONAL_ERROR:
-  return {...state, nationalLoading: false, error: true};
+  return {...state, nationalLoading: true, error: true};
       default:
         return state;
     }

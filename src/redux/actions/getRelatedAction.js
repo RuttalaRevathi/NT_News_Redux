@@ -6,14 +6,14 @@ export const GET_RELATED_SUCCESS = 'GET_RELATED_SUCCESS';
 export const GET_RELATED_ERROR = 'GET_RELATED_ERROR';
 export const GET_RELATED = 'GET_RELATED';
 
- const getRelatedAction = (categoryName) => {
+ const getRelatedAction = (relate_id) => {
 
     try {
       return async dispatch => {
         dispatch({
           type: GET_RELATED,
         });
-        const result = await fetch(BaseUrl + RelatedUrl + '?id=' + 558102, {
+        const result = await fetch(BaseUrl + RelatedUrl + '?id=' + relate_id, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',

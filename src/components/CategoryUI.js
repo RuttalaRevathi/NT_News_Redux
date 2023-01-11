@@ -15,6 +15,7 @@ import SubHeader from '../components/SubHeader';
 import LinearGradient from 'react-native-linear-gradient';
 import moment from 'moment';
 import { ShareUrl } from '../utilities/urls';
+import FastImage from 'react-native-fast-image';
 
 const sharecall = (name) => {
   const Link_Url = ShareUrl + name;
@@ -59,7 +60,7 @@ function CategoryUI(props, { navigation }) {
                       });
                     }}>
                     <View style={commonstyles.sliderView}>
-                      <Image
+                      <FastImage
                         source={{ uri: item?.web_featured_image }}
                         style={commonstyles.slidercard}
                       />
@@ -85,11 +86,19 @@ function CategoryUI(props, { navigation }) {
               renderItem={({ item, index }) => (
                 <View>
                   <TouchableOpacity
+<<<<<<< HEAD
                     onPress={() => {
                       props.navigation.navigate('Details', {
                         item: item,detailsData:props.data?.data,
                       });
                     }}>
+=======
+                   onPress={() => {
+                    props.navigation.navigate('Details', {
+                      item: item,detailsData:props.data?.data
+                    });
+                  }}>
+>>>>>>> d6475f5 (district categories)
                     <View style={commonstyles.cardView}>
                       <View style={commonstyles.cateviewImg}>
                         <Image

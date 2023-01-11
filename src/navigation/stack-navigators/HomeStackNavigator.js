@@ -11,7 +11,20 @@ import PhotoArticle from '../../screens/PhotoArticle';
 import TopTabNavigator from '../TopTabNavigator';
 import VideoArticle from '../../screens/VideoArticle';
 import CartoonArticle from '../../screens/CartoonArticle';
+<<<<<<< HEAD
 
+=======
+import Adilabad from '../../screens/DistrictScreens/Adilabad';
+import Karimnagar from '../../screens/DistrictScreens/Karimnagar';
+import Khammam from '../../screens/DistrictScreens/Khammam';
+import Mahabubnagar from '../../screens/DistrictScreens/Mahabubnagar';
+import Medak from '../../screens/DistrictScreens/Medak';
+import Nalgonda from '../../screens/DistrictScreens/Nalgonda';
+import Nizamabad from '../../screens/DistrictScreens/Nizamabad';
+import Rangareddy from '../../screens/DistrictScreens/Rangareddy';
+import Warangal from '../../screens/DistrictScreens/Warangal';
+import HyderabadScreen from '../../screens/TopTabScreens/Hyderabad';
+>>>>>>> d6475f5 (district categories)
 const Stack = createStackNavigator();
 
 const HomeStackNavigator = () => {
@@ -28,7 +41,20 @@ const HomeStackNavigator = () => {
       <Stack.Screen name="PhotoArticle" component={PhotoArticle} />
       <Stack.Screen name="VideoArticle" component={VideoArticle} />
       <Stack.Screen name="CartoonArticle" component={CartoonArticle} />
+<<<<<<< HEAD
 
+=======
+      <Stack.Screen name="హైదరాబాద్‌" component={HyderabadScreen} />
+      <Stack.Screen name="ఆదిలాబాద్" component={Adilabad} />
+      <Stack.Screen name="కరీంనగర్‌" component={Karimnagar} />
+      <Stack.Screen name="ఖమ్మం" component={Khammam} />
+      <Stack.Screen name="మెహబూబ్ నగర్" component={Mahabubnagar} />
+      <Stack.Screen name="మెదక్" component={Medak} />
+      <Stack.Screen name="నల్గొండ" component={Nalgonda} />
+      <Stack.Screen name="నిజామాబాద్" component={Nizamabad} />
+      <Stack.Screen name="రంగారెడ్డి" component={Rangareddy} />
+      <Stack.Screen name="వరంగల్" component={Warangal} />
+>>>>>>> d6475f5 (district categories)
 
     </Stack.Navigator>
   )

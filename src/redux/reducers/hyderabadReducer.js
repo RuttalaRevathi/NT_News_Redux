@@ -15,11 +15,11 @@ import {
   function hyderabadReducer(state = initialState, action) {
     switch (action.type) {
       case GET_HYDERABAD:
-        return {...state, hyderabadLoading: false};
+        return {...state, hyderabadLoading: true};
       case GET_HYDERABAD_SUCCESS:
-        return {...state, hyderabadData: action.payload, hyderabadLoading: true};
+        return {...state, hyderabadData: action.payload, hyderabadLoading: false};
               case GET_HYDERABAD_ERROR:
-  return {...state, hyderabadLoading: false, error: true};
+  return {...state, hyderabadLoading: true, error: true};
       default:
         return state;
     }

@@ -1,8 +1,12 @@
 /* eslint-disable prettier/prettier */
 import React, { useEffect } from 'react';
 import { useDispatch, connect } from 'react-redux';
+<<<<<<< HEAD
 import getKhammamAction from '../../redux/actions/getKhammamAction';
+=======
+>>>>>>> d6475f5 (district categories)
 import CategoryUI from '../../components/CategoryUI';
+import { getKhammamAction } from '../../redux/actions/getKhammamAction';
 
 
 const KhammamScreen = ({
@@ -18,7 +22,7 @@ const KhammamScreen = ({
         dispatch(getKhammamAction());
 
     }, []);
-    // share function
+    
 
     return (
         <CategoryUI
@@ -41,4 +45,8 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = {
     getKhammamAction,
 };
+<<<<<<< HEAD
+=======
+
+>>>>>>> d6475f5 (district categories)
 export default connect(mapStateToProps, mapDispatchToProps)(KhammamScreen);

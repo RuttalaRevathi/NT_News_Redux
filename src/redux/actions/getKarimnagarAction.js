@@ -6,7 +6,11 @@ export const GET_KARIMNAGAR_SUCCESS = 'GET_KARIMNAGAR_SUCCESS';
 export const GET_KARIMNAGAR_ERROR = 'GET_KARIMNAGAR_ERROR';
 export const GET_KARIMNAGAR = 'GET_KARIMNAGAR';
 
+<<<<<<< HEAD
 export const getKarimnagarData = () => {
+=======
+export const getKarimnagarAction = () => {
+>>>>>>> d6475f5 (district categories)
   try {
     return async dispatch => {
       dispatch({

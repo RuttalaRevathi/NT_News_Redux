@@ -15,11 +15,11 @@ import {
   function apReducer(state = initialState, action) {
     switch (action.type) {
       case GET_AP:
-        return {...state, apLoading: false};
+        return {...state, apLoading: true};
       case GET_AP_SUCCESS:
-        return {...state, apData: action.payload, apLoading: true};
+        return {...state, apData: action.payload, apLoading: false};
               case GET_AP_ERROR:
-  return {...state, apLoading: false, error: true};
+  return {...state, apLoading: true, error: true};
       default:
         return state;
     }

@@ -223,7 +223,7 @@ const DrawerNavigator = (navigation) => {
           ),
         })}
       /> */}
-      <Drawer.Screen
+      {/* <Drawer.Screen
         name="Varthalu"
         component={BottomTabNavigator}
         options={({ navigation }) => ({
@@ -261,8 +261,8 @@ const DrawerNavigator = (navigation) => {
             </View>
           ),
         })}
-      />
-      <Drawer.Screen
+      /> */}
+      {/* <Drawer.Screen
         name="Hyderabad"
         component={BottomTabNavigator}
         options={({ navigation }) => ({
@@ -300,7 +300,7 @@ const DrawerNavigator = (navigation) => {
             </View>
           ),
         })}
-      />
+      /> */}
       {/* <Drawer.Screen
         name="National"
         component={NationalNews}

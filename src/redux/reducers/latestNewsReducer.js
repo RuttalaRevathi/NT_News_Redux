@@ -15,11 +15,11 @@
   function latestNewsReducer(state = initialState, action) {
     switch (action.type) {
       case GET_LATEST_NEWS:
-        return {...state, latestLoading: false};
+        return {...state, latestLoading: true};
       case GET_LATEST_NEWS_SUCCESS:
-        return {...state, latestNews: action.payload, latestLoading: true};
+        return {...state, latestNews: action.payload, latestLoading: false};
               case GET_LATEST_NEWS_ERROR:
-  return {...state, latestLoading: false, error: true};
+  return {...state, latestLoading: true, error: true};
       default:
         return state;
     }

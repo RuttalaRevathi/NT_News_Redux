@@ -3,12 +3,14 @@
 import React, { Component } from 'react';
 import { View, Text, TouchableOpacity, Image, FlatList, Alert, SafeAreaView, TouchableHighlight, Linking } from 'react-native';
 import { DrawerItem } from '@react-navigation/drawer';
+import { StackActions } from '@react-navigation/native';
 import { appThemeColor, blackcolor, graycolor, whitecolor } from '../styles/commonstyles';
 import { sideMenuStyle } from '../styles/SideMenuStyles';
 import { ScrollView } from 'react-native-gesture-handler';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import Modal from 'react-native-modal';
 
+const popAction = StackActions.pop(1);
 export default class SideMenu extends Component {
     constructor(props) {
         super(props);
@@ -53,7 +55,7 @@ export default class SideMenu extends Component {
                             label="హోమ్"
                             labelStyle={sideMenuStyle.text}
                             onPress={() => {
-                                this.props.navigation.navigate('Home');
+                                this.props.navigation.navigate('BottomTab');
                             }}
                         />
                         <DrawerItem

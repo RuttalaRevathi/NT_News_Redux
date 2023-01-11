@@ -1,19 +1,19 @@
 /* eslint-disable prettier/prettier */
 
-import { BaseUrl, CategoryUrl} from '../../utilities/urls';
+import { BaseUrl, CategoryUrl, Sports} from '../../utilities/urls';
 
 export const GET_SPORTS_SUCCESS = 'GET_SPORTS_SUCCESS';
 export const GET_SPORTS_ERROR = 'GET_SPORTS_ERROR';
 export const GET_SPORTS = 'GET_SPORTS';
 
- const getSportsAction = (categoryName) => {
+ const getSportsAction = () => {
 
     try {
       return async dispatch => {
         dispatch({
           type: GET_SPORTS,
         });
-        const result = await fetch(BaseUrl + CategoryUrl + categoryName, {
+        const result = await fetch(BaseUrl + CategoryUrl + Sports, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',

@@ -12,6 +12,7 @@ import HTMLView from 'react-native-htmlview';
 import moment from 'moment';
 import { connect, useDispatch } from 'react-redux';
 import getRelatedAction from '../redux/actions/getRelatedAction';
+import FastImage from 'react-native-fast-image';
 const screenWidth = Dimensions.get('window').width;
 
 // let decode = require('html-entities-decoder');
@@ -26,16 +27,16 @@ const Details = ({ navigation, relatedData, relatedLoading,
   // const [autiHeightData,setAutiHeightData] =useState();
 
   useEffect(() => {
-    dispatch(getRelatedAction());
+    dispatch(getRelatedAction(route?.params?.item?.id));
     setDetailsData(route?.params?.detailsData);
   }, []);
   // console.log(JSON.stringify(route?.params?.item), "===========================item");
 
   useEffect(() => {
-    // goToTop();
+    goToTop();
   }, []);
-  // var source = route?.params?.item?.content?.rendered;
-  // setAutiHeightData(route?.params?.item?.content?.rendered);
+  const goToTop = () => {
+    this.scroll.scrollTo({ x: 0, y: 0, animated: true });}
   const getIndex = () => {
     var index = detailsData.findIndex(
       x => x.id == route?.params?.item?.id,
@@ -43,6 +44,7 @@ const Details = ({ navigation, relatedData, relatedLoading,
     return index + 1;
    
   };
+<<<<<<< HEAD
 
 // const goToTop = () => {
 //   this.scroll.scrollTo({ x: 0, y: 0, animated: true });
@@ -123,10 +125,96 @@ return (
               style={{ width: 30, height: 30 }}
             />
           </TouchableOpacity>
+=======
+  
+  // const source1 = source.replace(
+  //   'lazyload',
+  //   'text/javascript',
+  // );
+ 
+  const source = route?.params?.item?.content?.rendered;
+  var source1 = source?.replace('lazyload', 'text/javascript');
+  return (
+    <View style={commonstyles.container}>
+      <View>
+        <View style={HeaderStyle.subHeadercustom}>
+          <View style={{ flex: 0.3 }}>
+            <TouchableOpacity
+              onPress={() => {
+                navigation.goBack();
+              }}
+              style={{ zIndex: 999 }}>
+              <Image
+                source={require('../Assets/Images/arrow.png')}
+                style={{ width: 18, height: 18, top: 10 }}
+              />
+            </TouchableOpacity>
+          </View>
+          <View
+            style={{
+              flex: 0.6,
+              flexDirection: 'row',
+              justifyContent: 'space-evenly',
+              paddingTop: 5,
+            }}>
+            <TouchableOpacity
+              onPress={() => {
+                Linking.openURL(
+                  'http://www.facebook.com/sharer.php?u=' +
+                  route?.params?.item?.link +
+                  '%3Futm_source%3Dreferral%26utm_medium%3DFB%26utm_campaign%3Dsocial_share&app_id=369158533547966',
+                );
+              }}>
+              <Image
+                resizeMode="contain"
+                source={require('../Assets/Images/facebook_share.png')}
+                style={{ width: 30, height: 30 }}
+              />
+            </TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => {
+                Linking.openURL(
+                  'https://twitter.com/intent/tweet?url=' +
+                  route?.params?.item?.link,
+                );
+              }}>
+              <Image
+                resizeMode="contain"
+                source={require('../Assets/Images/twitter_share.png')}
+                style={{ width: 30, height: 30 }}
+              />
+            </TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => {
+                Linking.openURL(
+                  'whatsapp://send?text=' + route?.params?.item?.link,
+                );
+              }}>
+              <FastImage
+                resizeMode="contain"
+                source={require('../Assets/Images/whatsapp_share.png')}
+                style={{ width: 30, height: 30 }}
+              />
+            </TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => {
+                Linking.openURL(
+                  'https://t.me/share?url=' + route?.params?.item?.link +'&text=',
+                );
+              }}>
+              <Image
+                resizeMode="contain"
+                source={require('../Assets/Images/telegram_icon.png')}
+                style={{ width: 30, height: 30 }}
+              />
+            </TouchableOpacity>
+          </View>
+>>>>>>> d6475f5 (district categories)
         </View>
       </View>
     </View>
 
+<<<<<<< HEAD
     <ScrollView
       ref={c => {
         this.scroll = c;
@@ -138,6 +226,19 @@ return (
             style={commonstyles.Detailslargecard}
           />
         </View>
+=======
+      <ScrollView
+       ref={c => {
+        this.scroll = c;
+      }}>
+        <View>
+          <View>
+            <FastImage
+              source={{ uri: route?.params?.item?.web_featured_image }}
+              style={commonstyles.Detailslargecard}
+            />
+          </View>
+>>>>>>> d6475f5 (district categories)
 
         <View style={{ margin: 10 }}>
           <HTMLView
@@ -208,7 +309,61 @@ return (
           </View>
           {/* Related news FlatList */}
 
+<<<<<<< HEAD
           <View >
+=======
+            <View >
+              <FlatList
+                showsHorizontalScrollIndicator={false}
+                persistentScrollbar={false}
+                data={relatedData?.data}
+                renderItem={({ item, index }) => (
+                  <View>
+                    <TouchableOpacity
+                      onPress={() => {
+                        navigation.navigate('Details', {
+                          item: item,
+                          // DetailsData: relatedData,
+                        });
+                      }}>
+                      <View style={commonstyles.cardView}>
+                        <View style={commonstyles.cateviewImg}>
+                          <FastImage
+                            source={{ uri: item?.web_featured_image }}
+                            style={commonstyles.cateImage}
+                          />
+                        </View>
+                        <View style={commonstyles.cateviewText}>
+                          <Text
+                            numberOfLines={2}
+                            ellipsizeMode="tail"
+                            style={commonstyles.latestText}>
+                            {item?.title?.rendered}
+                          </Text>
+                          <View style={commonstyles.timeview}>
+                            <Text style={commonstyles.latesttime}>
+                              {moment(item?.date_gmt).format('DD-MMM-YYYY')}{' '}
+                              ,{' '}
+                            </Text>
+                            <Text style={commonstyles.latesttime}>
+                              {moment(item?.modified)
+                                .utcOffset('+05:30')
+                                .format('hh.mm a')}{' '}
+                            </Text>
+                          </View>
+                        </View>
+                      </View>
+                    </TouchableOpacity>
+                  </View>
+                )}
+              />
+            </View>
+
+          </View>
+
+          {/* next Articles */}
+          <View>
+>>>>>>> d6475f5 (district categories)
             <FlatList
               showsHorizontalScrollIndicator={false}
               persistentScrollbar={false}
@@ -374,6 +529,7 @@ return (
                                                               }
                                                                                                                           
                             `}
+<<<<<<< HEAD
                     source={{
                       html: (item.content.rendered +=
                         "<style>@import url('https://fonts.googleapis.com/css2?family=Mandali&display=swap');p strong, span, p span{font-family: 'Mandali', sans-serif;}p,li{font-family: 'Mandali', sans-serif;line-height:1.6;color:#000;font-weight:500;font-size:18px}</style>"),
@@ -383,6 +539,65 @@ return (
                     viewportContent={
                       'width=device-width, user-scalable=no'
                     }
+=======
+                      source={{
+                        html: (item.content.rendered +=
+                          "<style>@import url('https://fonts.googleapis.com/css2?family=Mandali&display=swap');p strong, span, p span{font-family: 'Mandali', sans-serif;}p,li{font-family: 'Mandali', sans-serif;line-height:1.6;color:#000;font-weight:500;font-size:18px}</style>"),
+                        baseUrl: 'https://twitter.com',
+                      }}
+                      scalesPageToFit={false}
+                      viewportContent={
+                        'width=device-width, user-scalable=no'
+                      }
+                    />
+                  </View>
+                </View>
+              )}
+            />
+          </View>
+          {/* Flash News */}
+          <View>
+            <View style={{ marginLeft: 10 }}>
+              <Text style={commonstyles.relatedText}>Flash News</Text>
+            </View>
+            <View style={commonstyles.photoview}>
+              <View>
+
+                <View>
+                  <FlatList
+                    data={latestNews?.data}
+                    showsHorizontalScrollIndicator={false}
+                    horizontal={true}
+                    renderItem={({ item, index }) => (
+                      <View style={{ marginRight: 5, marginLeft: 10 }}>
+                        <TouchableOpacity
+                          onPress={() => {
+                            navigation.navigate('Details', {
+                              item: item,
+                            });
+                          }}>
+                          <View style={commonstyles.sliderView}>
+                            <FastImage
+                              source={{ uri: item.web_featured_image }}
+                              style={commonstyles.photocard}
+                            />
+                            <LinearGradient
+                              colors={['transparent', 'black']}
+                              style={commonstyles.linearGradient}
+                              start={{ x: 0.5, y: 0.2 }}
+                              locations={[0.2, 0.8]}>
+                              <Text
+                                numberOfLines={2}
+                                ellipsizeMode="tail"
+                                style={commonstyles.flashtext}>
+                                {item.title.rendered}
+                              </Text>
+                            </LinearGradient>
+                          </View>
+                        </TouchableOpacity>
+                      </View>
+                    )}
+>>>>>>> d6475f5 (district categories)
                   />
                 </View>
               </View>

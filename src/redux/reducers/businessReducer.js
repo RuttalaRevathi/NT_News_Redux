@@ -17,7 +17,7 @@ import {
       case GET_BUSINESS:
         return {...state, businessLoading: false};
       case GET_BUSINESS_SUCCESS:
-        return {...state, businessData: action.payload, businessLoading: true};
+      return {...state, businessData: action.payload, businessLoading: true};
               case GET_BUSINESS_ERROR:
   return {...state, businessLoading: false, error: true};
       default:

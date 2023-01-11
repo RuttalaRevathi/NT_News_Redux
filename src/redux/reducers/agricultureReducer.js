@@ -15,11 +15,11 @@ import {
   function agricultureReducer(state = initialState, action) {
     switch (action.type) {
       case GET_AGRICULTURE:
-        return {...state, agricultureLoading: false};
+        return {...state, agricultureLoading: true};
       case GET_AGRICULTURE_SUCCESS:
-        return {...state, agricultureData: action.payload, agricultureLoading: true};
+        return {...state, agricultureData: action.payload, agricultureLoading: false};
               case GET_AGRICULTURE_ERROR:
-  return {...state, agricultureLoading: false, error: true};
+  return {...state, agricultureLoading: true, error: true};
       default:
         return state;
     }

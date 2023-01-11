@@ -1,19 +1,19 @@
 /* eslint-disable prettier/prettier */
 
-import { BaseUrl, CategoryUrl} from '../../utilities/urls';
+import { BaseUrl, CategoryUrl, Telangana} from '../../utilities/urls';
 
 export const GET_TELANGANA_SUCCESS = 'GET_TELANGANA_SUCCESS';
 export const GET_TELANGANA_ERROR = 'GET_TELANGANA_ERROR';
 export const GET_TELANGANA = 'GET_TELANGANA';
 
- const getTelanganaAction = (categoryName) => {
+ const getTelanganaAction = () => {
 
     try {
       return async dispatch => {
         dispatch({
           type: GET_TELANGANA,
         });
-        const result = await fetch(BaseUrl + CategoryUrl + categoryName, {
+        const result = await fetch(BaseUrl + CategoryUrl + Telangana, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',

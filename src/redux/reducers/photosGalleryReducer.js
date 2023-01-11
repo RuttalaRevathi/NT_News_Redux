@@ -15,11 +15,11 @@ import {
   function photosGalleryReducer(state = initialState, action) {
     switch (action.type) {
       case GET_PHOTOS:
-        return {...state, photosLoading: false};
+        return {...state, photosLoading: true};
       case GET_PHOTOS_SUCCESS:
-        return {...state, photosData: action.payload, photosLoading: true};
+        return {...state, photosData: action.payload, photosLoading: false};
               case GET_PHOTOS_ERROR:
-  return {...state, photosLoading: false, error: true};
+  return {...state, photosLoading: true, error: true};
       default:
         return state;
     }

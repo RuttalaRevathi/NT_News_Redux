@@ -15,11 +15,11 @@ import {
   function sportsReducer(state = initialState, action) {
     switch (action.type) {
       case GET_SPORTS:
-        return {...state, sportsLoading: false};
+        return {...state, sportsLoading: true};
       case GET_SPORTS_SUCCESS:
-        return {...state, sportsData: action.payload, sportsLoading: true};
+        return {...state, sportsData: action.payload, sportsLoading: false};
               case GET_SPORTS_ERROR:
-  return {...state, sportsLoading: false, error: true};
+  return {...state, sportsLoading: true, error: true};
       default:
         return state;
     }

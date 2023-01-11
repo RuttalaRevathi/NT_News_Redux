@@ -18,7 +18,10 @@ const RangareddyScreen = ({
         dispatch(getRangareddyAction());
 
     }, []);
-    // share function
+    // console.log(
+        
+    //     JSON.stringify(rangareddyData),'rangareddy data=============================================>',
+    //   );
 
     return (
         <CategoryUI
@@ -41,4 +44,8 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = {
     getRangareddyAction,
 };
+<<<<<<< HEAD
+=======
+
+>>>>>>> d6475f5 (district categories)
 export default connect(mapStateToProps, mapDispatchToProps)(RangareddyScreen);

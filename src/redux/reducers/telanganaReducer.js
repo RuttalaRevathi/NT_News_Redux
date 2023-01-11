@@ -15,11 +15,11 @@ import {
   function telanganaReducer(state = initialState, action) {
     switch (action.type) {
       case GET_TELANGANA:
-        return {...state, telanganaLoading: false};
+        return {...state, telanganaLoading: true};
       case GET_TELANGANA_SUCCESS:
-        return {...state, telanganaData: action.payload, telanganaLoading: true};
+        return {...state, telanganaData: action.payload, telanganaLoading: false};
               case GET_TELANGANA_ERROR:
-  return {...state, telanganaLoading: false, error: true};
+  return {...state, telanganaLoading: true, error: true};
       default:
         return state;
     }

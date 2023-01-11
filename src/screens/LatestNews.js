@@ -1,7 +1,7 @@
 /* eslint-disable prettier/prettier */
 /* eslint-disable react-native/no-inline-styles */
-import React, {useEffect} from 'react';
-import {useDispatch, connect} from 'react-redux';
+import React, { useEffect } from 'react';
+import { useDispatch, connect, useSelector } from 'react-redux';
 import {
   ActivityIndicator,
   FlatList,
@@ -13,7 +13,7 @@ import {
   View,
 } from 'react-native';
 import SubHeader from '../components/SubHeader';
-import {commonstyles} from '../styles/commonstyles';
+import { commonstyles } from '../styles/commonstyles';
 import getLatestNewsAction from '../redux/actions/getLatestNewsAction';
 import moment from 'moment';
 import LinearGradient from 'react-native-linear-gradient';
@@ -21,16 +21,10 @@ import LinearGradient from 'react-native-linear-gradient';
 
 const LatestNews = ({
   navigation,
-  latestNews,
-  latestLoading,
   route,
 }: Props) => {
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(getLatestNewsAction());
-  }, []);
-  // share function
+  const latestNews = useSelector(state => state.latestNewsReducer.latestNews);
+  const latestLoading = useSelector(state => state.latestNewsReducer.latestLoading);
   return (
     <SafeAreaView styles={commonstyles.container}>
       <SubHeader
@@ -56,8 +50,13 @@ const LatestNews = ({
                 <View style={{ marginRight: 5, marginLeft: 5, marginTop: 10 }}>
                   <TouchableOpacity
                     onPress={() => {
+<<<<<<< HEAD
                      navigation.navigate('Details', {
                       item: item,detailsData:latestNews?.data
+=======
+                      navigation.navigate('Details', {
+                        item: item, detailsData: latestNews?.data,
+>>>>>>> d6475f5 (district categories)
                       });
                     }}>
                     <View style={commonstyles.sliderView}>
@@ -83,13 +82,18 @@ const LatestNews = ({
             />
             <FlatList
               style={commonstyles.cateflist}
-              data={latestNews.data?.slice(1, -1)}
+              data={latestNews?.data?.slice(1, -1)}
               renderItem={({ item, index }) => (
                 <View>
                   <TouchableOpacity
                     onPress={() => {
+<<<<<<< HEAD
                      navigation.navigate('Details', {
                       item: item,detailsData:latestNews?.data
+=======
+                      navigation.navigate('Details', {
+                        item: item, detailsData: latestNews?.data,
+>>>>>>> d6475f5 (district categories)
                       });
                     }}>
                     <View style={commonstyles.cardView}>
@@ -134,21 +138,9 @@ const LatestNews = ({
             </View>
         } */}
 
-   
+
     </SafeAreaView>
   );
 };
 
-type Props = {
-    latestNews: Function,
-  latestLoading: Boolean,
-};
-
-const mapStateToProps = state => ({
-    latestNews: state.latestNewsReducer?.latestNews,
-    latestLoading: state.latestNewsReducer?.latestLoading,
-});
-const mapDispatchToProps = {
-    getLatestNewsAction,
-};
-export default connect(mapStateToProps, mapDispatchToProps)(LatestNews);
+export default LatestNews;

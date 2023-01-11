@@ -1,19 +1,19 @@
 /* eslint-disable prettier/prettier */
 
-import { BaseUrl, CategoryUrl} from '../../utilities/urls';
+import { BaseUrl, CategoryUrl, Rasiphalalu} from '../../utilities/urls';
 
 export const GET_RASIPHALALU_SUCCESS = 'GET_RASIPHALALU_SUCCESS';
 export const GET_RASIPHALALU_ERROR = 'GET_RASIPHALALU_ERROR';
 export const GET_RASIPHALALU = 'GET_RASIPHALALU';
 
- const getRasiPhalaluAction = (categoryName) => {
+ const getRasiPhalaluAction = () => {
 
     try {
       return async dispatch => {
         dispatch({
           type: GET_RASIPHALALU,
         });
-        const result = await fetch(BaseUrl + CategoryUrl + categoryName, {
+        const result = await fetch(BaseUrl + CategoryUrl + Rasiphalalu, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',

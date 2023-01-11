@@ -1,19 +1,19 @@
 /* eslint-disable prettier/prettier */
 
-import { BaseUrl, CategoryUrl} from '../../utilities/urls';
+import { BaseUrl, Bathukamma, CategoryUrl} from '../../utilities/urls';
 
 export const GET_BATHUKAMMA_SUCCESS = 'GET_BATHUKAMMA_SUCCESS';
 export const GET_BATHUKAMMA_ERROR = 'GET_BATHUKAMMA_ERROR';
 export const GET_BATHUKAMMA = 'GET_BATHUKAMMA';
 
- const getBathukammaAction = (categoryName) => {
+ const getBathukammaAction = () => {
 
     try {
       return async dispatch => {
         dispatch({
           type: GET_BATHUKAMMA,
         });
-        const result = await fetch(BaseUrl + CategoryUrl + categoryName, {
+        const result = await fetch(BaseUrl + CategoryUrl + Bathukamma, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',

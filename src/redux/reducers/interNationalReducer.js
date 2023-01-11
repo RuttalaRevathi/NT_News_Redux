@@ -15,11 +15,11 @@ import {
   function interNationalReducer(state = initialState, action) {
     switch (action.type) {
       case GET_INTERNATIONAL:
-        return {...state, interNationalLoading: false};
+        return {...state, interNationalLoading: true};
       case GET_INTERNATIONAL_SUCCESS:
-        return {...state, interNationalData: action.payload, interNationalLoading: true};
+        return {...state, interNationalData: action.payload, interNationalLoading: false};
               case GET_INTERNATIONAL_ERROR:
-  return {...state, interNationalLoading: false, error: true};
+  return {...state, interNationalLoading: true, error: true};
       default:
         return state;
     }

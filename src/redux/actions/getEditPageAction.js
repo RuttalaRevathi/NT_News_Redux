@@ -1,19 +1,19 @@
 /* eslint-disable prettier/prettier */
 
-import { BaseUrl, CategoryUrl} from '../../utilities/urls';
+import { BaseUrl, CategoryUrl, Editpage} from '../../utilities/urls';
 
 export const GET_EDITPAGE_SUCCESS = 'GET_EDITPAGE_SUCCESS';
 export const GET_EDITPAGE_ERROR = 'GET_EDITPAGE_ERROR';
 export const GET_EDITPAGE = 'GET_EDITPAGE';
 
- const getEditPageAction = (categoryName) => {
+ const getEditPageAction = () => {
 
     try {
       return async dispatch => {
         dispatch({
           type: GET_EDITPAGE,
         });
-        const result = await fetch(BaseUrl + CategoryUrl + categoryName, {
+        const result = await fetch(BaseUrl + CategoryUrl + Editpage, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',

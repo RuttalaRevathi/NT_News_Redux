@@ -15,11 +15,11 @@ import {
   function editPageReducer(state = initialState, action) {
     switch (action.type) {
       case GET_EDITPAGE:
-        return {...state, editPageLoading: false};
+        return {...state, editPageLoading: true};
       case GET_EDITPAGE_SUCCESS:
-        return {...state, editPageData: action.payload, editPageLoading: true};
+        return {...state, editPageData: action.payload, editPageLoading: false};
               case GET_EDITPAGE_ERROR:
-  return {...state, editPageLoading: false, error: true};
+  return {...state, editPageLoading: true, error: true};
       default:
         return state;
     }

@@ -1,8 +1,12 @@
 /* eslint-disable prettier/prettier */
 import React, { useEffect } from 'react';
 import { useDispatch, connect } from 'react-redux';
+<<<<<<< HEAD
 import getMedakAction from '../../redux/actions/getMedakAction';
+=======
+>>>>>>> d6475f5 (district categories)
 import CategoryUI from '../../components/CategoryUI';
+import { getMedakAction } from '../../redux/actions/getMedakAction';
 
 
 const MedakScreen = ({
@@ -18,8 +22,6 @@ const MedakScreen = ({
         dispatch(getMedakAction());
 
     }, []);
-    // share function
-
     return (
         <CategoryUI
         data = {medakData}
@@ -41,4 +43,8 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = {
     getMedakAction,
 };
+<<<<<<< HEAD
+=======
+
+>>>>>>> d6475f5 (district categories)
 export default connect(mapStateToProps, mapDispatchToProps)(MedakScreen);

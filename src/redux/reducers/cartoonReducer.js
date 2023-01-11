@@ -15,11 +15,11 @@ import {
   function cartoonReducer(state = initialState, action) {
     switch (action.type) {
       case GET_CARTOON:
-        return {...state, cartoonLoading: false};
+        return {...state, cartoonLoading: true};
       case GET_CARTOON_SUCCESS:
-        return {...state, cartoonData: action.payload, cartoonLoading: true};
+        return {...state, cartoonData: action.payload, cartoonLoading: false};
               case GET_CARTOON_ERROR:
-  return {...state, cartoonLoading: false, error: true};
+  return {...state, cartoonLoading: true, error: true};
       default:
         return state;
     }

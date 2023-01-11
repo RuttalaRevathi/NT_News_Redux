@@ -24,7 +24,7 @@ import agricultureReducer from '../redux/reducers/agricultureReducer';
 import cookingReducer from '../redux/reducers/cookingReducer';
 import vaasthuReducer from '../redux/reducers/vaasthuReducer';
 import videoReducer from '../redux/reducers/videoReducer';
-import adilabadReducer from '../redux/reducers/districtsReducer';
+import adilabadReducer from '../redux/reducers/adilabadReducer';
 import karimnagarReducer from '../redux/reducers/districtsReducer';
 import khammamReducer from '../redux/reducers/districtsReducer';
 import mahabubnagarReducer from '../redux/reducers/districtsReducer';
@@ -33,12 +33,6 @@ import nalgondaReducer from '../redux/reducers/districtsReducer';
 import nizamabadReducer from '../redux/reducers/districtsReducer';
 import rangareddyReducer from '../redux/reducers/districtsReducer';
 import warangalReducer from '../redux/reducers/districtsReducer';
-
-
-
-
-
-
 
 const rootReducer = combineReducers({sliderReducer,latestNewsReducer,hyderabadReducer,
 cinemaReducer,rasiPhalauReducer,cartoonReducer,healthReducer,telanganaReducer,apReducer,

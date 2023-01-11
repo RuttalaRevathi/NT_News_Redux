@@ -15,11 +15,11 @@ import {
   function cinemaReducer(state = initialState, action) {
     switch (action.type) {
       case GET_CINEMA:
-        return {...state, cinemaLoading: false};
+        return {...state, cinemaLoading: true};
       case GET_CINEMA_SUCCESS:
-        return {...state, cinemaData: action.payload, cinemaLoading: true};
+        return {...state, cinemaData: action.payload, cinemaLoading: false};
               case GET_CINEMA_ERROR:
-  return {...state, cinemaLoading: false, error: true};
+  return {...state, cinemaLoading: true, error: true};
       default:
         return state;
     }

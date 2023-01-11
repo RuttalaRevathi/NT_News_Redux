@@ -18,8 +18,13 @@ import getVideoAction from '../../redux/actions/getVideoAction';
 
 const Videos = ({
     navigation,
+<<<<<<< HEAD
     videoData,
     videoLoading,
+=======
+    videosData,
+    videosLoading,
+>>>>>>> d6475f5 (district categories)
     route,
 }: Props) => {
     const dispatch = useDispatch();
@@ -28,7 +33,11 @@ const Videos = ({
         dispatch(getVideoAction());
     }, []);
     // share function
+<<<<<<< HEAD
     console.log('videoData', videoData?.data);
+=======
+    console.log('videosData', videosData?.data);
+>>>>>>> d6475f5 (district categories)
     return (
         <SafeAreaView styles={commonstyles.container}>
             <SubHeader
@@ -49,7 +58,11 @@ const Videos = ({
                     <View>
                         <FlatList
                             style={commonstyles.cateflist}
+<<<<<<< HEAD
                             data={videoData?.data}
+=======
+                            data={videosData?.data}
+>>>>>>> d6475f5 (district categories)
                             numColumns={2}
                             renderItem={({ item, index }) =>
 
@@ -58,7 +71,11 @@ const Videos = ({
                                         <TouchableOpacity onPress={() => {
                                             navigation.navigate('VideoArticle', {
                                                 item: item,
+<<<<<<< HEAD
                                                 detailsData: videoData?.data,
+=======
+                                                detailsData: videosData?.data,
+>>>>>>> d6475f5 (district categories)
                                             });
                                         }}  >
                                             <View style={commonstyles.latestMainView}>

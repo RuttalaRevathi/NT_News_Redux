@@ -61,7 +61,7 @@ const Cartoon = ({ navigation,
                             renderItem={({ item, index }) =>
                                 <View style={{ flex: 1, marginRight: 5 }}>
                                     <View style={commonstyles.CartoonCard}>
-                                        <TouchableOpacity onPress={() => { navigation.navigate("CartoonArticle", { data: item }) }}  >
+                                        <TouchableOpacity onPress={() => { navigation.navigate("CartoonArticle", { item: item }) }}  >
                                             <Image source={{ uri: item?.web_featured_image }} style={commonstyles.cartoonimg} resizeMode="contain" />
 
                                         </TouchableOpacity>

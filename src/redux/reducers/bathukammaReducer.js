@@ -15,11 +15,11 @@ import {
   function bathukammaReducer(state = initialState, action) {
     switch (action.type) {
       case GET_BATHUKAMMA:
-        return {...state, bathukammaLoading: false};
+        return {...state, bathukammaLoading: true};
       case GET_BATHUKAMMA_SUCCESS:
-        return {...state, bathukammaData: action.payload, bathukammaLoading: true};
+        return {...state, bathukammaData: action.payload, bathukammaLoading: false};
               case GET_BATHUKAMMA_ERROR:
-  return {...state, bathukammaLoading: false, error: true};
+  return {...state, bathukammaLoading: true, error: true};
       default:
         return state;
     }

@@ -1,19 +1,19 @@
 /* eslint-disable prettier/prettier */
 
-import { BaseUrl, CategoryUrl} from '../../utilities/urls';
+import { BaseUrl, CategoryUrl, Cooking} from '../../utilities/urls';
 
 export const GET_COOKING_SUCCESS = 'GET_COOKING_SUCCESS';
 export const GET_COOKING_ERROR = 'GET_COOKING_ERROR';
 export const GET_COOKING = 'GET_COOKING';
 
- const getCookingAction = (categoryName) => {
+ const getCookingAction = () => {
 
     try {
       return async dispatch => {
         dispatch({
           type: GET_COOKING,
         });
-        const result = await fetch(BaseUrl + CategoryUrl + categoryName, {
+        const result = await fetch(BaseUrl + CategoryUrl + Cooking, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',

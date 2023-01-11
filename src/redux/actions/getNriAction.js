@@ -1,19 +1,19 @@
 /* eslint-disable prettier/prettier */
 
-import { BaseUrl, CategoryUrl} from '../../utilities/urls';
+import { BaseUrl, CategoryUrl, Nri} from '../../utilities/urls';
 
 export const GET_NRI_SUCCESS = 'GET_NRI_SUCCESS';
 export const GET_NRI_ERROR = 'GET_NRI_ERROR';
 export const GET_NRI = 'GET_NRI';
 
- const getNriAction = (categoryName) => {
+ const getNriAction = () => {
 
     try {
       return async dispatch => {
         dispatch({
           type: GET_NRI,
         });
-        const result = await fetch(BaseUrl + CategoryUrl + categoryName, {
+        const result = await fetch(BaseUrl + CategoryUrl + Nri, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',

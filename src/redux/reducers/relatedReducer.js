@@ -15,11 +15,11 @@ import {
   function relatedReducer(state = initialState, action) {
     switch (action.type) {
       case GET_RELATED:
-        return {...state, relatedLoading: false};
+        return {...state, relatedLoading: true};
       case GET_RELATED_SUCCESS:
-        return {...state, relatedData: action.payload, relatedLoading: true};
+        return {...state, relatedData: action.payload, relatedLoading: false};
               case GET_RELATED_ERROR:
-  return {...state, relatedLoading: false, error: true};
+  return {...state, relatedLoading: true, error: true};
       default:
         return state;
     }

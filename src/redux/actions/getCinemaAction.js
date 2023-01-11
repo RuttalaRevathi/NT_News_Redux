@@ -1,19 +1,19 @@
 /* eslint-disable prettier/prettier */
 
-import { BaseUrl, CategoryUrl} from '../../utilities/urls';
+import { BaseUrl, CategoryUrl, Cinema} from '../../utilities/urls';
 
 export const GET_CINEMA_SUCCESS = 'GET_CINEMA_SUCCESS';
 export const GET_CINEMA_ERROR = 'GET_CINEMA_ERROR';
 export const GET_CINEMA = 'GET_CINEMA';
 
- const getCinemaAction = (categoryName) => {
+ const getCinemaAction = () => {
 
     try {
       return async dispatch => {
         dispatch({
           type: GET_CINEMA,
         });
-        const result = await fetch(BaseUrl + CategoryUrl + categoryName, {
+        const result = await fetch(BaseUrl + CategoryUrl + Cinema, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',

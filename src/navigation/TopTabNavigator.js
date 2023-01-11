@@ -26,6 +26,7 @@ import CookingScreen from '../screens/TopTabScreens/Cooking';
 import VaasthuScreen from '../screens/TopTabScreens/Vaasthu';
 import LatestNews from '../screens/LatestNews';
 import Videos from '../screens/TopTabScreens/Videos';
+<<<<<<< HEAD
 import Warangal from '../screens/DistrictScreens/Warangal';
 import Rangareddy from '../screens/DistrictScreens/Rangareddy';
 import Nalgonda from '../screens/DistrictScreens/Nalgonda';
@@ -40,6 +41,17 @@ import Mahabubnagar from '../screens/DistrictScreens/Mahabubnagar';
 
 
 
+=======
+import Adilabad from '../screens/DistrictScreens/Adilabad';
+import Karimnagar from '../screens/DistrictScreens/Karimnagar';
+import Khammam from '../screens/DistrictScreens/Khammam';
+import Mahabubnagar from '../screens/DistrictScreens/Mahabubnagar';
+import Medak from '../screens/DistrictScreens/Medak';
+import Nalgonda from '../screens/DistrictScreens/Nalgonda';
+import Nizamabad from '../screens/DistrictScreens/Nizamabad';
+import Rangareddy from '../screens/DistrictScreens/Rangareddy';
+import Warangal from '../screens/DistrictScreens/Warangal';
+>>>>>>> d6475f5 (district categories)
 
 const TopTab = createMaterialTopTabNavigator();
 const TopTabNavigator = () => {
@@ -103,6 +115,7 @@ const TopTabNavigator = () => {
       <TopTab.Screen name="వ్యవసాయం" component={AgricultureScreen} />
       <TopTab.Screen name="వంటలు" component={CookingScreen} />
       <TopTab.Screen name="వాస్తు" component={VaasthuScreen} />
+<<<<<<< HEAD
       {/* <TopTab.Screen name="ఆదిలాబాద్" component={Adilabad} />
       <TopTab.Screen name="కరీంనగర్‌" component={Karimnagar} />
       <TopTab.Screen name="ఖమ్మం" component={Khammam} />
@@ -113,6 +126,9 @@ const TopTabNavigator = () => {
       <TopTab.Screen name="రంగారెడ్డి" component={Rangareddy} />
       <TopTab.Screen name="వరంగల్" component={Warangal} /> */}
 
+=======
+     
+>>>>>>> d6475f5 (district categories)
 
     
     </TopTab.Navigator>

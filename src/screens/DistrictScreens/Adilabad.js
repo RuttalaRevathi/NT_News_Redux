@@ -1,8 +1,12 @@
 /* eslint-disable prettier/prettier */
 import React, { useEffect } from 'react';
 import { useDispatch, connect } from 'react-redux';
+<<<<<<< HEAD
 import getAdilabadAction from '../../redux/actions/getAdilabadAction';
+=======
+>>>>>>> d6475f5 (district categories)
 import CategoryUI from '../../components/CategoryUI';
+import { getAdilabadAction } from '../../redux/actions/getAdilabadAction';
 
 
 const AdilabadScreen = ({
@@ -18,14 +22,18 @@ const AdilabadScreen = ({
         dispatch(getAdilabadAction());
 
     }, []);
-    // share function
+
 
     return (
         <CategoryUI
         data = {adilabadData}
         navigation = {navigation}
         title = {route.name}
+<<<<<<< HEAD
         categoryName ="adilabad"
+=======
+        categoryName ="warangal-rural"
+>>>>>>> d6475f5 (district categories)
         />
     );
 };
@@ -41,4 +49,8 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = {
     getAdilabadAction,
 };
+<<<<<<< HEAD
+=======
+
+>>>>>>> d6475f5 (district categories)
 export default connect(mapStateToProps, mapDispatchToProps)(AdilabadScreen);

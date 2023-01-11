@@ -15,11 +15,11 @@ import {
   function zindagiReducer(state = initialState, action) {
     switch (action.type) {
       case GET_ZINDAGI:
-        return {...state, zindagiLoading: false};
+        return {...state, zindagiLoading: true};
       case GET_ZINDAGI_SUCCESS:
-        return {...state, zindagiData: action.payload, zindagiLoading: true};
+        return {...state, zindagiData: action.payload, zindagiLoading: false};
               case GET_ZINDAGI_ERROR:
-  return {...state, zindagiLoading: false, error: true};
+  return {...state, zindagiLoading: true, error: true};
       default:
         return state;
     }

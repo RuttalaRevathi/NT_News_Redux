@@ -1,19 +1,19 @@
 /* eslint-disable prettier/prettier */
 
-import { BaseUrl, CategoryUrl} from '../../utilities/urls';
+import { BaseUrl, CategoryUrl, Zindagi} from '../../utilities/urls';
 
 export const GET_ZINDAGI_SUCCESS = 'GET_ZINDAGI_SUCCESS';
 export const GET_ZINDAGI_ERROR = 'GET_ZINDAGI_ERROR';
 export const GET_ZINDAGI = 'GET_ZINDAGI';
 
- const getZindagiAction = (categoryName) => {
+ const getZindagiAction = () => {
 
     try {
       return async dispatch => {
         dispatch({
           type: GET_ZINDAGI,
         });
-        const result = await fetch(BaseUrl + CategoryUrl + categoryName, {
+        const result = await fetch(BaseUrl + CategoryUrl + Zindagi, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',

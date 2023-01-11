@@ -15,11 +15,11 @@ import {
   function vaasthuReducer(state = initialState, action) {
     switch (action.type) {
       case GET_VAASTHU:
-        return {...state, vasthuLoading: false};
+        return {...state, vasthuLoading: true};
       case GET_VAASTHU_SUCCESS:
-        return {...state, vaasthuData: action.payload, vasthuLoading: true};
+        return {...state, vaasthuData: action.payload, vasthuLoading: false};
               case GET_VAASTHU_ERROR:
-  return {...state, vasthuLoading: false, error: true};
+  return {...state, vasthuLoading: true, error: true};
       default:
         return state;
     }
